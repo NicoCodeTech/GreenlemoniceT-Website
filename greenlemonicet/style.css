@@ -76,30 +76,11 @@ body::after {
   z-index: 10;
 }
 
-h1, h2, h3, .section-title {
+h2, h3, .section-title {
   font-family: var(--font-heading);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-bright);
-}
-
-h1 {
-  font-size: clamp(3.5rem, 12vw, 7rem);
-  line-height: 1.1;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  word-break: break-word;
-  filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
-}
-
-.subtitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 400;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
-  letter-spacing: 0.02em;
 }
 
 .mint-text { color: var(--mint); }
@@ -133,15 +114,15 @@ blockquote {
   letter-spacing: -0.01em;
 }
 
-/* Hero-Banner – responsiv */
+/* Banner */
 .hero-banner {
   width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.hero { padding: 2rem 0; }
+.hero { padding: 1rem 0 2rem; }
 
 .hero .prolog-quote {
   font-family: var(--font-body);
@@ -161,11 +142,11 @@ blockquote {
   align-items: start;
 }
 
-/* Textur-Hintergrund für „Über das Buch“ und „Leseprobe“ */
+/* Hintergrundbild für Textcontainer – jetzt mit korrektem Dateinamen */
 .about-block,
 .reader-container {
   background-color: rgba(17, 17, 17, 0.7);
-  background-image: url('texture.png');
+  background-image: url('Hintergrund.png');
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
@@ -399,8 +380,7 @@ blockquote {
   .download-shop { grid-template-columns: 1fr; gap: 2rem; }
   .reader-card { padding-left: 1.2rem; font-size: 1rem; }
   .page { padding: 1.5rem 1.2rem; }
-  .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
-  .hero-banner { margin-bottom: 1.5rem; }
+  .hero-banner { margin-bottom: 1rem; }
 }
 
 @media (min-width: 1800px) {
