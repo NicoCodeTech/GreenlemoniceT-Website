@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-deep: #0A0A0A;
+  --bg-elevated: #111111;
+  --text-primary: #E0E0E0;
+  --text-bright: #FFFFFF;
+  --mint: #A8E6CF;
+  --mint-soft: #7FD8BE;
+  --forest-dark: #1A4D3A;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --font-heading: 'Inter Tight', system-ui, -apple-system, sans-serif;
+  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max-width: 1400px;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  font-weight: 400;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+}
+
+#scroll-indicator {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #2a2a2a;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+#scroll-indicator .progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--mint);
+  transition: height 0.1s linear;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 2rem 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+h1, h2, h3, .section-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-bright);
+}
+
+h1 {
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.mint-text { color: var(--mint); }
+
+.separator {
+  width: 80px;
+  height: 2px;
+  background: var(--mint);
+  margin: 1.5rem 0 2rem;
+  opacity: 0.7;
+}
+
+blockquote {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  border-left: 2px solid var(--forest-dark);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: #cccccc;
+  font-size: 1.2rem;
+}
+
+.quote-mint {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--mint);
+  font-size: 1.3rem;
+  margin: 1.8rem 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+/* Hero-Banner – responsiv */
+.hero-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.hero { padding: 2rem 0; }
+
+.hero .prolog-quote {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 2rem 0 1rem;
+  color: var(--text-bright);
+  border: none;
+  padding-left: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 4rem 0;
+  align-items: start;
+}
+
+/* Textur-Hintergrund für „Über das Buch“ und „Leseprobe“ */
+.about-block,
+.reader-container {
+  background-color: rgba(17, 17, 17, 0.7);
+  background-image: url('texture.png');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.about-block:hover {
+  border-color: var(--forest-dark);
+  background-color: rgba(20, 20, 20, 0.8);
+}
+
+.about-block p { font-size: 1.2rem; line-height: 1.8; }
+
+.leaf-icon {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--forest-dark);
+  opacity: 0.5;
+  margin: 1rem 0;
+}
+
+.reader-section { margin: 5rem 0; }
+
+.reader-container {
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+.reader-card {
+  min-height: 260px;
+  border-left: 4px solid var(--forest-dark);
+  padding-left: 2rem;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #dddddd;
+  font-family: var(--font-body);
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.reader-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #ddd;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-size: 1.2rem;
+}
+
+.nav-btn:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+  background: rgba(168, 230, 207, 0.08);
+}
+
+.page-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: #aaa;
+}
+
+.voices { margin: 5rem 0; }
+
+.voice-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #ccc;
+}
+
+.voice-item i { color: var(--mint); font-size: 2rem; opacity: 0.8; }
+
+.download-shop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin: 5rem 0;
+}
+
+.panel {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(5px);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+  color: var(--text-bright);
+}
+
+.panel:hover {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: #000;
+}
+
+.panel:hover h3,
+.panel:hover .small-note,
+.panel:hover a {
+  color: #000;
+}
+
+.panel:hover .download-links a,
+.panel:hover .shop-links a {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+.panel h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.download-links a,
+.shop-links a {
+  display: inline-block;
+  margin-right: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-bright);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.download-links a i,
+.shop-links a i { margin-right: 0.4rem; }
+
+.download-links a:hover,
+.shop-links a:hover {
+  color: var(--mint);
+  border-bottom-color: var(--mint);
+}
+
+.small-note { font-size: 0.9rem; color: #aaa; margin-top: 1rem; }
+
+.social-section { text-align: center; margin: 5rem 0 3rem; }
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons a {
+  color: #ddd;
+  font-size: 2rem;
+  transition: color 0.25s, transform 0.2s;
+}
+
+.social-icons a:hover { color: var(--mint); transform: translateY(-3px); }
+
+.contact-note { font-size: 1rem; color: #999; font-style: italic; }
+
+.footer {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 2rem;
+}
+
+.footer .closing {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.footer .mint-whisper {
+  color: var(--mint);
+  opacity: 0.65;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer .copyright { font-size: 0.85rem; color: #777; }
+
+.growth-element {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  width: 80px;
+  height: 160px;
+  z-index: 5;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.growth-element svg { width: 100%; height: 100%; }
+
+.grass-path {
+  stroke: var(--mint);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  transition: stroke-dashoffset 1.8s ease-out;
+}
+
+@media (max-width: 800px) {
+  .about-grid,
+  .download-shop { grid-template-columns: 1fr; gap: 2rem; }
+  .reader-card { padding-left: 1.2rem; font-size: 1rem; }
+  .page { padding: 1.5rem 1.2rem; }
+  .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .hero-banner { margin-bottom: 1.5rem; }
+}
+
+@media (min-width: 1800px) {
+  .page { max-width: 1500px; }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}

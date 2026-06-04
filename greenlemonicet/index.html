@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Discidium Primaevum · Die Ur-Trennung</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scroll-indicator" aria-hidden="true"></div>
+
+  <div class="growth-element" aria-hidden="true">
+    <svg viewBox="0 0 60 140" xmlns="http://www.w3.org/2000/svg">
+      <path class="grass-path" id="grassPath" d="M30 140 Q28 90 18 60 Q10 40 8 20 Q6 5 12 0 M30 140 Q32 95 42 65 Q50 45 55 25 Q58 10 53 3" />
+    </svg>
+  </div>
+
+  <main class="page">
+    <section class="hero" aria-labelledby="main-title">
+      <!-- Banner-Bild -->
+      <img src="banner.png" alt="Discidium Primaevum Banner" class="hero-banner">
+      <h1 id="main-title">DISCIDIUM<br>PRIMAEVUM</h1>
+      <div class="subtitle">Die Ur-Trennung · Eine Anatomie des modernen Leidens</div>
+      <div class="separator" aria-hidden="true"></div>
+      <blockquote class="prolog-quote">
+        »Es gibt eine Stunde, meist zwischen drei und vier Uhr morgens, in der die Maschinen schweigen.«
+      </blockquote>
+      <div class="quote-mint">
+        »Dies ist der verlorene Kontinent, nach dem sich jede Faser unserer Biologie sehnt.«
+      </div>
+    </section>
+
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title" style="font-size: 2rem; margin-bottom: 1.5rem;">Über das Buch</h2>
+      <div class="about-grid">
+        <div class="about-block">
+          <p><strong style="color: var(--mint);">Der Riss ist die Ur-Trennung.</strong> Dieses Buch seziert ihn – schonungslos, ohne Trost.</p>
+        </div>
+        <div class="about-block">
+          <p><strong style="color: var(--mint);">Aber es vergisst nie, was verloren ging:</strong> die Einheit mit dem Leben, den Rhythmus der Ur-Natur.</p>
+        </div>
+      </div>
+      <div class="leaf-icon" aria-hidden="true">
+        <i class="fas fa-leaf"></i>
+      </div>
+    </section>
+
+    <section class="reader-section" aria-labelledby="reader-heading">
+      <h2 id="reader-heading" class="section-title" style="font-size: 2rem; margin-bottom: 1.8rem;">Leseprobe</h2>
+      <div class="reader-container">
+        <div class="reader-card" id="readerText"></div>
+        <div class="reader-nav">
+          <button class="nav-btn" id="prevBtn" aria-label="Vorherige Seite"><i class="fas fa-arrow-left"></i></button>
+          <span class="page-indicator" id="pageIndicator">1 / 3</span>
+          <button class="nav-btn" id="nextBtn" aria-label="Nächste Seite"><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="voices" aria-labelledby="voices-heading">
+      <h2 id="voices-heading" class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">Stimmen</h2>
+      <div class="voice-item">
+        <i class="fas fa-quote-right"></i>
+        <span>„Eine radikale Ehrlichkeit, die man nicht vergisst.“ – (Unbekannt)</span>
+      </div>
+      <div class="voice-item">
+        <i class="fas fa-quote-right"></i>
+        <span>„Nichts für schwache Nerven. Aber für alle, die denken wollen.“ – (Unbekannt)</span>
+      </div>
+      <div class="voice-item">
+        <i class="fas fa-quote-right"></i>
+        <span>„Die Ur-Trennung ist endlich beim Namen genannt.“ – (Unbekannt)</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="download-shop-heading">
+      <h2 id="download-shop-heading" class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">Bezugsquellen</h2>
+      <div class="download-shop">
+        <div class="panel">
+          <h3><i class="fas fa-download mint-text"></i> Kostenlos lesen</h3>
+          <div class="download-links">
+            <a href="#" aria-label="PDF herunterladen"><i class="fas fa-file-pdf"></i> PDF</a>
+            <a href="#" aria-label="EPUB herunterladen"><i class="fas fa-book"></i> EPUB</a>
+            <a href="#" aria-label="MOBI herunterladen"><i class="fas fa-tablet-alt"></i> MOBI</a>
+          </div>
+          <p class="small-note">Das Ebook ist kostenlos – teilen erwünscht.</p>
+        </div>
+        <div class="panel">
+          <h3><i class="fas fa-shopping-cart mint-text"></i> Gedruckt kaufen</h3>
+          <div class="shop-links">
+            <a href="#" aria-label="Taschenbuch (bald verfügbar)"><i class="fas fa-book-open"></i> Taschenbuch</a>
+            <a href="#" aria-label="Hardcover (bald verfügbar)"><i class="fas fa-bookmark"></i> Hardcover</a>
+          </div>
+          <p class="small-note">Die gedruckte Ausgabe erscheint bald im Buchhandel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section" aria-labelledby="social-heading">
+      <h2 id="social-heading" class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">Verbunden bleiben</h2>
+      <div class="social-icons">
+        <a href="https://twitter.com/discidium" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://instagram.com/discidium" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://tiktok.com/@discidium" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://youtube.com/@discidium" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://bsky.app/profile/discidium.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://linkedin.com/in/discidium" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+      <p class="contact-note">Der Autor ist auf diesen Kanälen erreichbar. Ohne Filter.</p>
+    </section>
+
+    <footer class="footer">
+      <div class="closing">Das ist nicht alles. Aber es ist genug.</div>
+      <div class="mint-whisper">discidium primaevum – für die, die den Riss sehen und die Sehnsucht nicht vergessen.</div>
+      <div class="copyright">© <span id="currentYear"></span> Nico Ulrich</div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
