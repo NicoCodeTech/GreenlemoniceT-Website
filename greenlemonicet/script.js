@@ -205,7 +205,7 @@
   ];
 
   // --- Pageflip Engine ---
-  let currentSpread = 0; // Aktuelle Doppelseite (0-basiert)
+  let currentSpread = 0;
   const totalSpreads = Math.ceil(bookPages.length / 2);
 
   const pageLeftContent = document.getElementById('pageLeftContent');
@@ -246,7 +246,6 @@
     const flipTarget = document.getElementById('pageFlip');
     if (!flipTarget || !flipFront || !flipBack) return;
 
-    // Inhalt für die umblätternde Seite vorbereiten
     const flipIdx = direction === 'next' ? currentSpread * 2 + 1 : currentSpread * 2 - 1;
     if (flipIdx >= 0 && flipIdx < bookPages.length) {
       flipFront.textContent = bookPages[flipIdx];
@@ -283,7 +282,6 @@
     nextBtn.addEventListener('click', () => flipPage('next'));
   }
 
-  // Tastatur-Steuerung für Pageflip
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') flipPage('prev');
     if (e.key === 'ArrowRight') flipPage('next');
@@ -308,9 +306,7 @@
     if (fill) fill.style.height = scrollPercent + '%';
 
     // Atmosphärisches Rauschen variieren
-    const bodyAfter = document.body;
     const noiseOpacity = 0.4 + (scrollPercent / 100) * 0.25;
-    document.body.style.setProperty('--noise-opacity', noiseOpacity);
     const styleElement = document.getElementById('noise-style');
     if (!styleElement) {
       const style = document.createElement('style');
@@ -358,7 +354,6 @@
     });
   });
 
-  // Sanftes Scrollen für Nav-Links
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -370,15 +365,19 @@
     });
   });
 
-  // --- Grashalm ---
-  const grassPath = document.getElementById('grassPath');
-  if (grassPath) {
+  // --- Wachsender Baum ---
+  const treePaths = document.querySelectorAll('.tree-path');
+  if (treePaths.length > 0) {
     window.addEventListener('load', () => {
-      setTimeout(() => { grassPath.style.strokeDashoffset = '0'; }, 300);
+      setTimeout(() => {
+        treePaths.forEach(path => {
+          path.style.strokeDashoffset = '0';
+        });
+      }, 300);
     });
   }
 
-  // --- Jahr ---
+  // --- Aktuelles Jahr ---
   const yearSpan = document.getElementById('currentYear');
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 })();
