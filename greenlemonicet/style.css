@@ -270,7 +270,7 @@ blockquote {
   overflow-y: auto;
   position: relative;
   background: #2a3a34;
-  color: #2a2a2a;
+  color: #ffffff;
 }
 
 .page-left {
@@ -281,7 +281,7 @@ blockquote {
   font-family: var(--font-body);
   font-size: 0.9rem;
   line-height: 1.8;
-  color: #2a2a2a;
+  color: #ffffff;
   text-align: justify;
   hyphens: auto;
 }
@@ -291,7 +291,7 @@ blockquote {
   bottom: 0.8rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #8b7d6b;
+  color: #999;
 }
 
 .page-left .page-number { left: 1rem; }
@@ -329,7 +329,7 @@ blockquote {
   line-height: 1.8;
   overflow-y: auto;
   background: #2a3a34;
-  color: #2a2a2a;
+  color: #ffffff;
 }
 
 .page-flip-back {
