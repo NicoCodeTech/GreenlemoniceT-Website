@@ -13,9 +13,16 @@
 <body>
   <div id="scroll-indicator" aria-hidden="true"></div>
 
+  <!-- Wachsender Baum -->
   <div class="growth-element" aria-hidden="true">
-    <svg viewBox="0 0 60 140" xmlns="http://www.w3.org/2000/svg">
-      <path class="grass-path" id="grassPath" d="M30 140 Q28 90 18 60 Q10 40 8 20 Q6 5 12 0 M30 140 Q32 95 42 65 Q50 45 55 25 Q58 10 53 3" />
+    <svg viewBox="0 0 80 160" xmlns="http://www.w3.org/2000/svg">
+      <path class="tree-path" id="trunk" d="M40 160 L40 80" />
+      <path class="tree-path" id="branch1" d="M40 110 Q20 90 10 60" />
+      <path class="tree-path" id="branch2" d="M40 110 Q60 90 70 60" />
+      <path class="tree-path" id="branch3" d="M25 85 Q15 70 8 50" />
+      <path class="tree-path" id="branch4" d="M55 85 Q65 70 72 50" />
+      <path class="tree-path" id="branch5" d="M18 65 Q12 55 5 40" />
+      <path class="tree-path" id="branch6" d="M62 65 Q68 55 75 40" />
     </svg>
   </div>
 
@@ -38,7 +45,6 @@
   </nav>
 
   <main class="page">
-    <!-- Hero -->
     <section class="hero" aria-label="Titelbanner">
       <img src="Banner.png" alt="Discidium Primaevum – Die Ur-Trennung" class="hero-banner">
       <div class="separator" aria-hidden="true"></div>
@@ -50,7 +56,6 @@
       </div>
     </section>
 
-    <!-- Über mich -->
     <section id="about" aria-labelledby="about-heading">
       <h2 id="about-heading" class="section-title">Über mich</h2>
       <div class="about-author">
@@ -62,7 +67,6 @@
       </div>
     </section>
 
-    <!-- Discidium Genetivum Teil I -->
     <section id="teil1" aria-labelledby="teil1-heading">
       <h2 id="teil1-heading" class="section-title">Discidium Genetivum · Teil I</h2>
       <div class="about-block">
@@ -70,7 +74,6 @@
       </div>
     </section>
 
-    <!-- Discidium Genetivum Teil II -->
     <section id="teil2" aria-labelledby="teil2-heading">
       <h2 id="teil2-heading" class="section-title">Discidium Genetivum · Teil II</h2>
       <div class="about-block">
@@ -78,7 +81,6 @@
       </div>
     </section>
 
-    <!-- Discidium Genetivum Teil III -->
     <section id="teil3" aria-labelledby="teil3-heading">
       <h2 id="teil3-heading" class="section-title">Discidium Genetivum · Teil III</h2>
       <div class="about-block">
@@ -86,7 +88,6 @@
       </div>
     </section>
 
-    <!-- Discidium Genetivum Teil IV -->
     <section id="teil4" aria-labelledby="teil4-heading">
       <h2 id="teil4-heading" class="section-title">Discidium Genetivum · Teil IV</h2>
       <div class="about-block">
@@ -94,7 +95,6 @@
       </div>
     </section>
 
-    <!-- Leseprobe mit Pageflip -->
     <section id="leseprobe" class="reader-section" aria-labelledby="reader-heading">
       <h2 id="reader-heading" class="section-title">Leseprobe</h2>
       <div class="book-container">
@@ -120,7 +120,6 @@
       </div>
     </section>
 
-    <!-- Kaufen / Download -->
     <section id="download-shop" aria-labelledby="download-shop-heading">
       <h2 id="download-shop-heading" class="section-title">Kaufen / Download</h2>
       <div class="download-shop">
@@ -144,7 +143,6 @@
       </div>
     </section>
 
-    <!-- Social Media -->
     <section class="social-section" aria-labelledby="social-heading">
       <h2 id="social-heading" class="section-title">Verbunden bleiben</h2>
       <div class="social-icons">
