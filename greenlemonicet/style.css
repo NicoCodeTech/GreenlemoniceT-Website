@@ -269,7 +269,7 @@ blockquote {
   padding: 2rem;
   overflow-y: auto;
   position: relative;
-  background: #f3ecd8;
+  background: #2a3a34;
   color: #2a2a2a;
 }
 
@@ -328,12 +328,12 @@ blockquote {
   font-size: 0.9rem;
   line-height: 1.8;
   overflow-y: auto;
-  background: #f3ecd8;
+  background: #2a3a34;
   color: #2a2a2a;
 }
 
 .page-flip-back {
-  background: #e8ddcb;
+  background: #2a3a34;
   transform: rotateY(180deg);
 }
 
