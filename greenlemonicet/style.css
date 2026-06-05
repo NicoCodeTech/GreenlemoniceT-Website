@@ -30,11 +30,10 @@ body {
   position: relative;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grazescale;
+  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
 
-/* Atmosphärisches Rauschen – variiert beim Scrollen */
 body::after {
   content: "";
   position: fixed;
@@ -71,7 +70,6 @@ body::after {
   transition: height 0.1s linear;
 }
 
-/* Navigation */
 .sticky-nav {
   position: sticky;
   top: 0;
@@ -191,15 +189,25 @@ blockquote {
   padding-left: 0;
 }
 
-/* Über mich */
+/* Hintergrundbild für alle Textcontainer */
+.about-author,
+.about-block,
+.reader-container,
+.panel {
+  background-color: rgba(17, 17, 17, 0.7);
+  background-image: url('Hintergrund.png');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-subtle);
+}
+
 .about-author {
   display: flex;
   gap: 2rem;
   align-items: center;
   flex-wrap: wrap;
-  background: rgba(17, 17, 17, 0.7);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border-subtle);
   border-radius: 18px;
   padding: 2rem;
   margin-bottom: 3rem;
@@ -220,9 +228,6 @@ blockquote {
 }
 
 .about-block {
-  background: rgba(17, 17, 17, 0.7);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border-subtle);
   border-radius: 18px;
   padding: 2rem;
   margin-bottom: 3rem;
@@ -236,7 +241,6 @@ blockquote {
 
 .about-block p { font-size: 1.2rem; line-height: 1.8; }
 
-/* Buch-Container (Pageflip) */
 .reader-section { margin: 3rem 0; }
 
 .book-container {
@@ -265,18 +269,19 @@ blockquote {
   padding: 2rem;
   overflow-y: auto;
   position: relative;
-  background: #1a1a1a;
+  background: #f3ecd8;
+  color: #2a2a2a;
 }
 
 .page-left {
-  border-right: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(0,0,0,0.1);
 }
 
 .page-content {
   font-family: var(--font-body);
   font-size: 0.9rem;
   line-height: 1.8;
-  color: #cccccc;
+  color: #2a2a2a;
   text-align: justify;
   hyphens: auto;
 }
@@ -286,13 +291,12 @@ blockquote {
   bottom: 0.8rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #666;
+  color: #8b7d6b;
 }
 
 .page-left .page-number { left: 1rem; }
 .page-right .page-number { right: 1rem; }
 
-/* Pageflip Animation */
 .page-flip {
   position: absolute;
   top: 0;
@@ -307,15 +311,9 @@ blockquote {
   display: none;
 }
 
-.page-flip.flipping {
-  display: block;
-  transform: rotateY(-180deg);
-}
-
+.page-flip.flipping,
 .page-flip.flipping-reverse {
   display: block;
-  transform: rotateY(0deg);
-  transform-origin: left center;
 }
 
 .page-flip-front,
@@ -329,22 +327,16 @@ blockquote {
   font-family: var(--font-body);
   font-size: 0.9rem;
   line-height: 1.8;
-  color: #cccccc;
   overflow-y: auto;
-  background: #1a1a1a;
-}
-
-.page-flip-front {
-  background: #1a1a1a;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  background: #f3ecd8;
+  color: #2a2a2a;
 }
 
 .page-flip-back {
-  background: #1d1d1d;
+  background: #e8ddcb;
   transform: rotateY(180deg);
 }
 
-/* Buch-Schatten beim Umblättern */
 .book::before {
   content: '';
   position: absolute;
@@ -393,7 +385,6 @@ blockquote {
   color: #aaa;
 }
 
-/* Zurück zum Ursprung */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -447,10 +438,8 @@ blockquote {
 }
 
 .panel {
-  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 20px;
   padding: 2rem;
-  background: rgba(10,10,10,0.7);
   backdrop-filter: blur(5px);
   transition: background 0.3s, border-color 0.3s, color 0.3s;
   color: var(--text-bright);
@@ -540,25 +529,29 @@ blockquote {
 
 .growth-element {
   position: fixed;
-  bottom: 90px;
+  bottom: 20px;
   right: 25px;
-  width: 60px;
-  height: 120px;
+  width: 80px;
+  height: 160px;
   z-index: 5;
-  opacity: 0.2;
+  opacity: 0.25;
   pointer-events: none;
 }
 
-.growth-element svg { width: 100%; height: 100%; }
+.growth-element svg {
+  width: 100%;
+  height: 100%;
+}
 
-.grass-path {
+.tree-path {
   stroke: var(--mint);
   stroke-width: 1.8;
   fill: none;
   stroke-linecap: round;
+  stroke-linejoin: round;
   stroke-dasharray: 250;
   stroke-dashoffset: 250;
-  transition: stroke-dashoffset 1.8s ease-out;
+  transition: stroke-dashoffset 2.5s ease-out;
 }
 
 @media (max-width: 800px) {
