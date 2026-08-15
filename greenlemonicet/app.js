@@ -207,147 +207,249 @@ document.addEventListener('keydown', function(e) {
 // ===== STERNENHIMMEL =====
 (function() {
   const starsData = [
-    // === SEHENDE (gold, offene Hand) ===
+    // === SEHENDE (gold, chaotisch) ===
     {
       name: 'Sigmund Freud',
       text: 'Freud hat das gespürt, was ich das Discidium nenne – nur nannte er es das Unbehagen. Er sah drei Quellen des Leidens, aber er blieb in den Symptomen stecken. Ich gehe weiter.',
       quote: 'Wir haben die Antwort bereits gegeben, indem wir auf die drei Quellen hinwiesen, aus denen unser Leiden kommt: die Übermacht der Natur, die Hinfälligkeit unseres eigenen Körpers und die Unzulänglichkeit der Einrichtungen, welche die Beziehungen der Menschen zueinander in Familie, Staat und Gesellschaft regeln.',
       source: 'Sigmund Freud, Das Unbehagen in der Kultur (1930), Kapitel 3',
-      type: 'sehend', x: 15, y: 60
+      type: 'sehend', x: 12, y: 65,
+      portrait: 'sigmund.png'
     },
     {
       name: 'Arthur Schopenhauer',
       text: 'Schopenhauer ist dem Discidium am nächsten gekommen, ohne es beim Namen zu nennen. Er sah den blinden Willen – und die Trennung des Menschen von ihm.',
       quote: 'Die Welt ist meine Vorstellung: – dies ist die Wahrheit, welche in Beziehung auf jedes lebende und erkennende Wesen gilt; wiewohl der Mensch allein sie in das reflektirte abstrakte Bewußtseyn bringen kann.',
       source: 'Arthur Schopenhauer, Die Welt als Wille und Vorstellung (1819/1844), Erster Band, Erstes Buch',
-      type: 'sehend', x: 20, y: 45
+      type: 'sehend', x: 18, y: 35,
+      portrait: 'arthur.png'
     },
     {
       name: 'Karl Marx',
       text: 'Marx hat die Entfremdung gesehen – aber er dachte, der Kapitalismus sei die Ursache. Er übersah, dass der Kapitalismus nur ein Werkzeug des Risses ist.',
       quote: 'Die Entfremdung des Menschen, überhaupt jedes Verhältnis, in dem der Mensch zu sich selbst steht, ist erst verwirklicht, drückt sich aus …',
       source: 'Karl Marx, Ökonomisch-philosophische Manuskripte (1844), MEW, Ergänzungsband 1, S. 518',
-      type: 'sehend', x: 30, y: 35
+      type: 'sehend', x: 25, y: 80,
+      portrait: 'karl.png'
     },
     {
       name: 'Friedrich Nietzsche',
       text: 'Nietzsche sah, dass die moderne Welt keine Kultur mehr hat – nur Wissen über Kultur. Er erkannte die Ablenkungsmaschine, bevor sie fertig gebaut war.',
       quote: 'Kultur ist vor allem Einheit des künstlerischen Stiles in allen Lebensäußerungen eines Volkes. Vieles Wissen und Gelernthaben ist aber weder ein notwendiges …',
       source: 'Friedrich Nietzsche, Unzeitgemäße Betrachtungen (1873–1876)',
-      type: 'sehend', x: 35, y: 50
+      type: 'sehend', x: 30, y: 18,
+      portrait: 'friedrich.png'
     },
     {
       name: 'Max Weber',
       text: 'Weber nannte den Käfig das \'stahlharte Gehäuse\'. Er wusste, dass der moderne Mensch seine Freiheit gegen Sicherheit eingetauscht hat – und langsam erstickt.',
       quote: 'Fachmenschen ohne Geist, Genussmenschen ohne Herz: dies Nichts bildet sich ein, eine nie vorher erreichte Stufe des Menschentums erstiegen zu haben.',
       source: 'Max Weber, Die protestantische Ethik und der Geist des Kapitalismus (1904/1905)',
-      type: 'sehend', x: 40, y: 65
+      type: 'sehend', x: 38, y: 55,
+      portrait: 'max.png'
     },
     {
       name: 'Georg Simmel',
       text: 'Simmel beschrieb das neuro-endokrine Grundrauschen, bevor es messbar war. Er wusste: Die Stadt macht den Menschen krank – nicht, weil sie laut ist, sondern weil sie ihn zwingt, sich selbst zu verlassen.',
       quote: 'Diese Verstandesmäßigkeit, so als ein Präservativ des subjektiven Lebens gegen die Vergewaltigungen der Großstadt erkannt, verzweigt sich in und mit vielfachen …',
       source: 'Georg Simmel, Die Großstädte und das Geistesleben (1903)',
-      type: 'sehend', x: 45, y: 40
+      type: 'sehend', x: 45, y: 42,
+      portrait: 'georg_simmel.png'
     },
     {
       name: 'Oswald Spengler',
       text: 'Spengler sah die Maschine, die sich gegen ihren Schöpfer wendet. Er beschrieb das gebaute Reich, bevor es seinen Namen hatte.',
       quote: 'Alles Organische erliegt der um sich greifenden Organisation. Eine künstliche Welt durchsetzt und vergiftet die natürliche. Die Zivilisation ist selbst eine Maschine geworden, die alles maschinenmäßig tut oder tun will.',
       source: 'Oswald Spengler, Der Mensch und die Technik (1931)',
-      type: 'sehend', x: 50, y: 55
+      type: 'sehend', x: 50, y: 25,
+      portrait: 'oswald.png'
     },
     {
       name: 'Erich Fromm',
       text: 'Fromm wusste, dass der Konsum den Menschen nicht sättigt, sondern leer macht. Er sah die Ablenkungsmaschine in ihrer perfidesten Form.',
       quote: 'Der moderne Kapitalismus braucht Menschen, die in großer Zahl reibungslos funktionieren, die immer mehr konsumieren wollen, deren Geschmack standardisiert ist und leicht vorausgesehen und beeinflußt werden kann.',
       source: 'Erich Fromm, Die Kunst des Liebens (1956)',
-      type: 'sehend', x: 55, y: 30
+      type: 'sehend', x: 55, y: 70,
+      portrait: 'erich.png'
     },
     {
       name: 'Jean-Paul Sartre',
       text: 'Sartre beschrieb die existenzielle Konsequenz des Discidium: der Mensch ist allein mit seiner Freiheit – und die meisten fliehen in den Käfig.',
       quote: 'Frei sein heißt zum Freisein verurteilt sein.',
       source: 'Jean-Paul Sartre, Der Existentialismus ist ein Humanismus (1946)',
-      type: 'sehend', x: 60, y: 45
+      type: 'sehend', x: 60, y: 38,
+      portrait: 'jean-paul.png'
     },
     {
       name: 'Theodor W. Adorno & Siegfried Kracauer',
       text: 'Sie haben den Riss in ihrem eigenen Leben gespürt – und ihn benannt: \'Der Riß der Welt geht auch durch mich.\' Sie haben den Käfig beschrieben, bevor er sichtbar wurde.',
       quote: 'Der Riß der Welt geht auch durch mich. – Die Masse der Angestellten unterscheidet sich vom Arbeiter-Proletariat darin, dass sie geistig obdachlos ist.',
       source: 'Theodor W. Adorno & Siegfried Kracauer, Briefwechsel 1923–1966; Siegfried Kracauer, Die Angestellten (1930)',
-      type: 'sehend', x: 65, y: 60
+      type: 'sehend', x: 68, y: 62,
+      portrait: 'theodor.png'
     },
-    // === BEWAHRENDE (silber, geschlossene Faust) ===
+    // === NEUE SEHENDE (gold) ===
+    {
+      name: 'Rabindranath Tagore',
+      text: 'Der indische Dichterphilosoph kritisierte die westliche Moderne als geistlose Nachahmung. Er warnte davor, dass die unendliche Gier des Westens sein Verderben sei – eine Diagnose, die dem Discidium-Konzept der Ablenkungsmaschine nahekommt.',
+      quote: '„Der modern gebildete Inder ist ein falsches Abbild seines westlichen Zeitgenossen.“',
+      source: 'Rabindranath Tagore, The Philosophy of Rabindranath Tagore (1921)',
+      type: 'sehend', x: 22, y: 12,
+      portrait: 'rabindranath.png'
+    },
+    {
+      name: 'Muhammad Iqbal',
+      text: 'Der Dichterphilosoph aus dem heutigen Pakistan sah die westliche Zivilisation als geistlos und materialistisch. Er warnte, dass der westliche Geist den Menschen in die Irre geführt und seine spirituellen Werte verbrannt habe.',
+      quote: '„Die Zivilisation des Westens hat den Menschen in die Irre geführt, alle seine spirituellen und moralischen Werte zu Asche verbrannt und ihn den niederen Begierden und der Vernunft unterworfen.“',
+      source: 'Muhammad Iqbal, The Evaluation of Two Conflicting Civilizations',
+      type: 'sehend', x: 42, y: 8,
+      portrait: 'muhammad_iqbal.png'
+    },
+    {
+      name: 'Okakura Tenshin',
+      text: 'Der japanische Kunstkritiker sah in der westlichen Moderne eine zersplitternde Kraft, die die Einheit Asiens bedrohte. Sein Ausspruch „Asien ist eins“ ist eine Absage an die individualistische Logik des Westens und eine frühe Kritik der fragmentierenden Moderne.',
+      quote: '„Asien ist eins.“',
+      source: 'Okakura Tenshin, The Ideals of the East (1904)',
+      type: 'sehend', x: 62, y: 15,
+      portrait: 'okakura.png'
+    },
+    {
+      name: 'Frantz Fanon',
+      text: 'Der Psychiater aus Martinique beschrieb die existenzielle Verwüstung der kolonisierten Seele. Seine »Zone des Nichtseins« ist eine radikale Beschreibung des Risses, den das Discidium benennt – ein Zustand absoluter Entfremdung, aus dem echter Aufbruch erst entstehen kann.',
+      quote: '„Es gibt eine Zone des Nichtseins, eine außerordentlich sterile und dürre Region, einen völlig kahlen Abhang, aus dem ein echter Aufbruch entstehen kann.“',
+      source: 'Frantz Fanon, Schwarze Haut, weiße Masken (1952)',
+      type: 'sehend', x: 72, y: 38,
+      portrait: 'frantz.png'
+    },
+    {
+      name: 'Achille Mbembe',
+      text: 'Der kamerunische Philosoph zeigt, dass die Moderne nicht das Ende der Barbarei war, sondern ihr Beginn in neuer Gestalt – als europäisches Projekt grenzenloser Expansion, das mit der Erfindung der Rasse einherging. Seine Kritik der Moderne ist eine Kritik des Risses.',
+      quote: '„Die ›Moderne‹ ist in Wirklichkeit nur der andere Name für das europäische Projekt grenzenloser Expansion, das in den letzten Jahrzehnten des 18. Jahrhunderts auf den Weg gebracht wurde.“',
+      source: 'Achille Mbembe, Kritik der schwarzen Vernunft (2013)',
+      type: 'sehend', x: 80, y: 25,
+      portrait: 'achille.png'
+    },
+    // === BEWAHRENDE (silber, chaotisch) ===
     {
       name: 'Thomas Hobbes',
       text: 'Hobbes hat den Käfig theoretisch begründet: Der Mensch ist des Menschen Wolf – und nur der absolute Staat kann ihn zähmen. Er verkaufte die Kontrolle als Lösung.',
       quote: 'Bellum omnium contra omnes – Der Krieg aller gegen alle.',
       source: 'Thomas Hobbes, De Cive (1642)',
-      type: 'bewahrend', x: 35, y: 60
+      type: 'bewahrend', x: 32, y: 58,
+      portrait: 'thomas.png'
     },
     {
       name: 'John Locke',
       text: 'Locke erklärte das Eigentum zum Naturrecht – und schuf den Individualismus, der den Menschen in der Verantwortung für seinen eigenen Misserfolg zurücklässt.',
       quote: 'Obwohl die Erde und alle niederen Geschöpfe allen Menschen gemeinsam gehören, so besitzt dennoch jeder Mensch in seiner eigenen Person ein Eigentum, auf das niemand als er selbst ein Anrecht hat.',
       source: 'John Locke, Zwei Abhandlungen über die Regierung (1689)',
-      type: 'bewahrend', x: 40, y: 45
+      type: 'bewahrend', x: 38, y: 48,
+      portrait: 'john_locke.png'
     },
     {
       name: 'Adam Smith',
       text: 'Smith erfand die \'unsichtbare Hand\' – eine Metapher, die bis heute das Herz der Ablenkungsmaschine ist. Er verkleidete den Käfig mit dem Versprechen des Wohlstands.',
       quote: 'Nicht vom Wohlwollen des Metzgers, Brauers oder Bäckers erwarten wir unsere Mahlzeit, sondern von deren Bedachtnahme auf ihr eigenes Interesse. Wir wenden uns nicht an ihre Menschenliebe, sondern an ihre Eigenliebe.',
       source: 'Adam Smith, Der Wohlstand der Nationen (1776)',
-      type: 'bewahrend', x: 45, y: 35
+      type: 'bewahrend', x: 45, y: 32,
+      portrait: 'adam.png'
     },
     {
       name: 'Immanuel Kant',
       text: 'Kant setzte die Vernunft über alles – und begründete den Rationalitätsglauben, der den Menschen von seinem Fühlen trennt. Er verkleidete den Käfig mit der Idee der Autonomie.',
       quote: 'Handle nur nach derjenigen Maxime, durch die du zugleich wollen kannst, daß sie ein allgemeines Gesetz werde.',
       source: 'Immanuel Kant, Grundlegung zur Metaphysik der Sitten (1785)',
-      type: 'bewahrend', x: 50, y: 50
+      type: 'bewahrend', x: 52, y: 52,
+      portrait: 'immanuel.png'
     },
     {
       name: 'Georg Wilhelm Friedrich Hegel',
       text: 'Hegel erfand den Fortschrittsglauben – die Idee, dass die Geschichte sich notwendig auf ein Ziel zubewegt. Er verkleidete den Käfig mit der Verheissung der Zukunft.',
       quote: 'Die Weltgeschichte ist der Fortschritt im Bewußtsein der Freiheit, – ein Fortschritt, den wir in seiner Notwendigkeit zu erkennen haben.',
       source: 'Georg Wilhelm Friedrich Hegel, Vorlesungen über die Philosophie der Geschichte (1837)',
-      type: 'bewahrend', x: 55, y: 65
+      type: 'bewahrend', x: 58, y: 68,
+      portrait: 'georg_hegel.png'
     },
     {
       name: 'René Descartes',
       text: 'Descartes begründete die Trennung von Geist und Körper – und stellte das Denken über das Fühlen. Er verkleidete den Käfig mit der Idee der Klarheit.',
       quote: 'Ich denke, also bin ich.',
       source: 'René Descartes, Discours de la méthode (1637)',
-      type: 'bewahrend', x: 60, y: 40
+      type: 'bewahrend', x: 62, y: 28,
+      portrait: 'rene.png'
     },
     {
       name: 'Gottfried Wilhelm Leibniz',
       text: 'Leibniz sagte, wir lebten in der besten aller möglichen Welten. Diese Behauptung ist die perfideste Form der Ablenkung: Sie rechtfertigt das Bestehende, noch bevor es hinterfragt werden kann.',
       quote: 'Wir leben in der besten aller möglichen Welten.',
       source: 'Gottfried Wilhelm Leibniz, Essais de Théodicée (1710) – allgemein anerkannte Wiedergabe seiner Kernaussage',
-      type: 'bewahrend', x: 65, y: 55
+      type: 'bewahrend', x: 68, y: 48,
+      portrait: 'gottfried.png'
     },
     {
       name: 'Edmund Burke',
       text: 'Burke sah die Gesellschaft als heiligen Vertrag zwischen den Generationen – und brandmarkte jede Veränderung als Bruch mit der Ordnung. Er verkleidete den Käfig mit dem Mantel der Tradition.',
       quote: 'Die Gesellschaft ist eine Vertrag zwischen der Vergangenheit, der Gegenwart und den ungeborenen Menschen.',
       source: 'Edmund Burke, Reflections on the Revolution in France (1790)',
-      type: 'bewahrend', x: 70, y: 30
+      type: 'bewahrend', x: 72, y: 20,
+      portrait: 'edmund.png'
     },
     {
       name: 'Jeremy Bentham',
       text: 'Bentham reduzierte den Menschen auf eine Zahl – eine Einheit in einer gesellschaftlichen Nutzenrechnung. Er verkleidete den Käfig mit der Idee der Effizienz.',
       quote: 'Der einzig und allein gerechte und einzig und allein zu rechtfertigende Endzweck des Staates ist: Das größte Glück der größten Zahl.',
       source: 'Jeremy Bentham, An Introduction to the Principles of Morals and Legislation (1789)',
-      type: 'bewahrend', x: 75, y: 45
+      type: 'bewahrend', x: 78, y: 42,
+      portrait: 'jeremy.png'
     },
     {
       name: 'John Stuart Mill',
       text: 'Mill stellte die Freiheit des Individuums in den Mittelpunkt – aber es war die Freiheit innerhalb des Käfigs, nicht die Freiheit, ihn zu verlassen.',
       quote: 'Der einzige Zweck, zu dem die Menschheit, einzeln oder kollektiv, berechtigt ist, in die Handlungsfreiheit eines ihrer Mitglieder einzugreifen, ist der Selbstschutz.',
       source: 'John Stuart Mill, On Liberty (1859)',
-      type: 'bewahrend', x: 80, y: 60
+      type: 'bewahrend', x: 85, y: 58,
+      portrait: 'john_stuart_mill.png'
+    },
+    // === NEUE BEWAHRENDE (silber) ===
+    {
+      name: 'Han Feizi',
+      text: 'Der chinesische Legalist vertrat die Ansicht, der Mensch sei von Natur aus selbstsüchtig und müsse durch strenge Gesetze gebändigt werden. Er baute den Käfig, indem er die Kontrolle als notwendige Ordnung rechtfertigte – eine der frühesten Rechtfertigungen des gebauten Reichs.',
+      quote: '„Die menschliche Natur ist selbstsüchtig. Wenn es keine Grenzen gibt, werden die Menschen unweigerlich in einen Kampf verfallen.“',
+      source: 'Han Feizi, Han Feizi',
+      type: 'bewahrend', x: 35, y: 78,
+      portrait: 'han_feizi.png'
+    },
+    {
+      name: 'Al-Ghazālī',
+      text: 'Der große islamische Theologe kritisierte die Philosophie, weil sie den Menschen von Gott und der Offenbarung trenne. Für ihn liegt das Heil in der Unterwerfung unter die göttliche Ordnung – eine Haltung, die den Riss überdeckt, statt ihn zu sehen.',
+      quote: '„Groß ist das Verbrechen gegen die Religion, das von jemandem begangen wird, der meint, der Islam sei durch die Leugnung der mathematischen Wissenschaften zu verteidigen.“',
+      source: 'Al-Ghazālī, Die Inkohärenz der Philosophen',
+      type: 'bewahrend', x: 48, y: 80,
+      portrait: 'al_ghazali.png'
+    },
+    {
+      name: 'Watsuji Tetsurō',
+      text: 'Der japanische Philosoph kritisierte den westlichen Individualismus, weil er den Menschen aus seiner Gemeinschaft reißt. In seiner Ablehnung der westlichen Moderne verteidigte er eine kollektivistische Ordnung – eine Antwort auf den Riss, die ihn nicht überwindet, sondern durch Gemeinschaft ersetzt.',
+      quote: '„Was ist der Mensch? Er ist weder ein bloßes Individuum noch eine bloße Gesellschaft. Er ist die Dialektik von Individuum und Gesellschaft.“',
+      source: 'Watsuji Tetsurō, Ethik als Wissenschaft vom Menschen (1934)',
+      type: 'bewahrend', x: 65, y: 80,
+      portrait: 'watsuji.png'
+    },
+    {
+      name: 'Xunzi',
+      text: 'Der chinesische Philosoph vertrat die These, dass die menschliche Natur böse sei und jede Güte durch bewusste Anstrengung erst erworben werden müsse – die theoretische Grundlage strenger gesellschaftlicher Kontrolle und eine frühe Rechtfertigung des Käfigs.',
+      quote: '„Die menschliche Natur ist böse; alles Gute im Menschen wird durch bewusste Anstrengung erworben.“',
+      source: 'Xunzi, Xunzi',
+      type: 'bewahrend', x: 82, y: 78,
+      portrait: 'xunzi.png'
+    },
+    {
+      name: 'Liang Shuming',
+      text: 'Der chinesische Denker verteidigte den Wert der chinesischen Kultur gegen die Verwestlichung. Er entwickelte eine Theorie der drei Kulturtypen, die die westliche Moderne als eindimensionale Entwicklung kritisiert – eine konservative Antwort auf den Riss, die ihn in der Tradition überdeckt.',
+      quote: '„Die Chinesen haben keine Religion, aber sie haben die Moral. Das ist das Wesen ihrer Kultur.“',
+      source: 'Liang Shuming, Die Kultur des Ostens und des Westens und ihre Philosophie',
+      type: 'bewahrend', x: 90, y: 30,
+      portrait: 'liang_shuming.png'
     }
   ];
 
@@ -358,6 +460,7 @@ document.addEventListener('keydown', function(e) {
   const sternText = document.getElementById('sternText');
   const sternQuote = document.getElementById('sternQuote');
   const sternSource = document.getElementById('sternSource');
+  const sternPortrait = document.getElementById('sternPortrait');
 
   starsData.forEach(star => {
     const btn = document.createElement('button');
@@ -371,6 +474,8 @@ document.addEventListener('keydown', function(e) {
       sternText.textContent = star.text;
       sternQuote.textContent = star.quote;
       sternSource.textContent = star.source;
+      sternPortrait.src = star.portrait;
+      sternPortrait.alt = `Porträt von ${star.name}`;
       sternModal.classList.add('active');
     });
     skyInner.appendChild(btn);
