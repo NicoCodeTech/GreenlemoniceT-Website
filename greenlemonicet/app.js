@@ -322,12 +322,12 @@ document.addEventListener('keydown', function(e) {
       portrait: 'frantz.png'
     },
     {
-      name: 'Achille Mbembe',
-      text: 'Der kamerunische Philosoph zeigt, dass die Moderne nicht das Ende der Barbarei war, sondern ihr Beginn in neuer Gestalt – als europäisches Projekt grenzenloser Expansion, das mit der Erfindung der Rasse einherging. Seine Kritik der Moderne ist eine Kritik des Risses.',
-      quote: '„Die ›Moderne‹ ist in Wirklichkeit nur der andere Name für das europäische Projekt grenzenloser Expansion, das in den letzten Jahrzehnten des 18. Jahrhunderts auf den Weg gebracht wurde.“',
-      source: 'Achille Mbembe, Kritik der schwarzen Vernunft (2013)',
+      name: 'Edward Said',
+      text: 'Der palästinensisch-amerikanische Literaturtheoretiker prägte mit seiner Kritik des Orientalismus ein ganzes Feld der Postkolonialen Studien. Er zeigte, wie der Westen den Orient nicht nur politisch, sondern auch intellektuell beherrscht und ihn als das "Andere" konstruiert – eine radikale Analyse der Abstraktion und Entfremdung, die dem Discidium nahekommt.',
+      quote: '„Der Orient war fast immer ein europäischer Gegenstand, eine europäische Erfindung – eine Ansammlung von Phantasmen, Klischees und Bildern.“',
+      source: 'Edward Said, Orientalismus (1978)',
       type: 'sehend', x: 80, y: 25,
-      portrait: 'achille.png'
+      portrait: 'edward.png'
     },
     // === BEWAHRENDE (silber, chaotisch) ===
     {
