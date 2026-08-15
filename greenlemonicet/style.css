@@ -1063,7 +1063,7 @@ a:focus-visible, button:focus-visible {
 .sky-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Volle Viewport-Höhe */
+  height: 70vh; /* Begrenzte Höhe */
   margin: 0 auto;
   overflow: hidden;
   background: #050505;
@@ -1077,25 +1077,6 @@ a:focus-visible, button:focus-visible {
     radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.2), transparent),
     radial-gradient(2px 2px at 90% 50%, rgba(255,255,255,0.1), transparent),
     radial-gradient(1px 1px at 70% 10%, rgba(255,255,255,0.3), transparent);
-}
-.riss-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.riss-path {
-  fill: none;
-  stroke: #D4A373; /* Warmes Orange */
-  stroke-width: 1.5;
-  animation: rissPuls 4s ease-in-out infinite;
-}
-@keyframes rissPuls {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.9; }
 }
 .star {
   position: absolute;
@@ -1194,7 +1175,7 @@ a:focus-visible, button:focus-visible {
   font-size: 1.2rem;
   line-height: 1.6;
 }
-/* Porträt-Silhouette im Modal */
+/* Porträt im Modal */
 .stern-modal-portrait {
   width: 80px;
   height: 80px;
@@ -1204,11 +1185,27 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: #FFD700;
-  font-size: 2.5rem;
+  overflow: hidden;
+}
+.stern-modal-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-/* Responsive Anpassungen für die neuen Elemente */
+/* Farbliche Hervorhebung im Sternenhimmel-Text */
+.gold {
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.silver {
+  color: #C0C0C0;
+  text-shadow: 0 0 20px rgba(192, 192, 192, 0.2);
+}
+
+/* Responsive Anpassungen */
 @media (max-width: 600px) {
   .pfeiler-grid {
     grid-template-columns: 1fr;
@@ -1240,7 +1237,7 @@ a:focus-visible, button:focus-visible {
     font-size: 0.9rem;
   }
   .sky-container {
-    height: 100vh; /* Auch auf Mobil volle Höhe */
+    height: 70vh; /* Auch auf Mobil begrenzt */
   }
   .star {
     width: 24px;
