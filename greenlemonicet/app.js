@@ -211,7 +211,7 @@ document.addEventListener('keydown', function(e) {
     {
       name: 'Sigmund Freud',
       text: 'Freud hat das gespürt, was ich das Discidium nenne – nur nannte er es das Unbehagen. Er sah drei Quellen des Leidens, aber er blieb in den Symptomen stecken. Ich gehe weiter.',
-      quote: 'Die individuelle Freiheit ist kein Kulturgut. Sie war am größten vor jeder Kultur, allerdings damals meist ohne Wert, weil das Individuum kaum imstande war, sie zu verteidigen.',
+      quote: 'Wir haben die Antwort bereits gegeben, indem wir auf die drei Quellen hinwiesen, aus denen unser Leiden kommt: die Übermacht der Natur, die Hinfälligkeit unseres eigenen Körpers und die Unzulänglichkeit der Einrichtungen, welche die Beziehungen der Menschen zueinander in Familie, Staat und Gesellschaft regeln.',
       source: 'Sigmund Freud, Das Unbehagen in der Kultur (1930), Kapitel 3',
       type: 'sehend', x: 15, y: 60
     },
@@ -382,39 +382,4 @@ document.addEventListener('keydown', function(e) {
   sternModal.addEventListener('click', (e) => {
     if (e.target === sternModal) sternModal.classList.remove('active');
   });
-
-  let scale = 1;
-  const skyContainer = document.getElementById('skyContainer');
-  const zoomInBtn = document.getElementById('zoomIn');
-  const zoomOutBtn = document.getElementById('zoomOut');
-  const rissPath = document.querySelector('.riss-path');
-
-  function updateZoom() {
-    skyInner.style.transform = `scale(${scale})`;
-    if (scale > 1.5) {
-      rissPath.style.strokeWidth = '3';
-      rissPath.style.opacity = '1';
-    } else {
-      rissPath.style.strokeWidth = '1.5';
-      rissPath.style.opacity = '0.7';
-    }
-  }
-
-  zoomInBtn.addEventListener('click', () => {
-    scale = Math.min(scale + 0.5, 3);
-    updateZoom();
-  });
-  zoomOutBtn.addEventListener('click', () => {
-    scale = Math.max(scale - 0.5, 1);
-    updateZoom();
-  });
-
-  skyContainer.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    if (e.deltaY < 0) scale = Math.min(scale + 0.2, 3);
-    else scale = Math.max(scale - 0.2, 1);
-    updateZoom();
-  }, { passive: false });
-
-  updateZoom();
 })();
