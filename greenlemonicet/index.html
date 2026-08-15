@@ -438,14 +438,11 @@
       <div class="container">
         <h2 id="sternenhimmel-heading" class="section-title">Sternenhimmel der Erkenntnis</h2>
         <p style="text-align:center; max-width:700px; margin:0 auto 3rem auto; color:#B0B0B0; font-family:'Source Serif 4', serif;">
-          Die Denker sind nicht vergangen. Sie sind immer noch da – als Sterne am Himmel des Risses. Die einen haben den Riss gesehen, die anderen haben ihn verdeckt. Klick auf einen Stern, um mehr zu erfahren.
+          Die Denker sind nicht vergangen. Sie sind immer noch da – als Sterne am Himmel des Discidium. Die einen haben den Riss gesehen, wir nennen sie die <span class="gold">Sehenden</span>, die anderen haben ihn verdeckt, diese nennen wir hier die <span class="silver">Bewahrer</span>. Klick auf einen Stern, um mehr zu erfahren.
         </p>
 
         <div class="sky-container" id="skyContainer">
           <div class="sky-inner" id="skyInner">
-            <svg class="riss-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path class="riss-path" d="M 32 20 Q 50 50 68 80" />
-            </svg>
             <!-- Sterne werden per JavaScript eingefügt -->
           </div>
         </div>
@@ -456,7 +453,9 @@
     <div class="stern-modal-overlay" id="sternModal">
       <div class="stern-modal">
         <button class="stern-modal-close" id="sternModalClose">&times;</button>
-        <div class="stern-modal-portrait"><i class="fas fa-user"></i></div>
+        <div class="stern-modal-portrait">
+          <img id="sternPortrait" src="" alt="Porträt" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        </div>
         <h3 id="sternName"></h3>
         <p id="sternText"></p>
         <p id="sternQuote" style="font-style: italic; color:#A8E6CF; margin-top:1.5rem; border-left: 3px solid #A8E6CF; padding-left:1rem;"></p>
