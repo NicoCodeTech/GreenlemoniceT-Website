@@ -338,13 +338,153 @@
       text-align: center;
     }
     #teil1 {
-      padding-top: 6rem; /* mehr Abstand vor Teil I */
+      padding-top: 6rem;
     }
     #dialog {
-      padding-top: 6rem; /* mehr Abstand vor Fragen */
+      padding-top: 6rem;
     }
 
-    /* Responsive Anpassungen */
+    /* ===== QUIZ-STYLES ===== */
+    #quiz {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #222;
+      border-radius: 3px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #A8E6CF;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .quiz-question {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-family: 'Inter Tight', sans-serif;
+    }
+    .quiz-answers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .quiz-answer {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      color: #FFFFFF;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      text-align: left;
+    }
+    .quiz-answer:hover {
+      background: #1E1E1E;
+      border-color: #A8E6CF;
+    }
+    .quiz-answer.selected {
+      background: #1E1E1E;
+      border-color: #A8E6CF;
+      color: #A8E6CF;
+    }
+    .quiz-result {
+      text-align: center;
+    }
+    .quiz-result h3 {
+      color: #A8E6CF;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-result .result-text {
+      text-align: left;
+      margin: 2rem 0;
+    }
+    .score-overview {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      text-align: left;
+    }
+    .score-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #141414;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      border: 1px solid #222;
+    }
+    .score-label {
+      flex: 0 0 200px;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+    .score-bar-bg {
+      flex: 1;
+      height: 8px;
+      background: #222;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      background: #A8E6CF;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .score-value {
+      flex: 0 0 40px;
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      color: #A8E6CF;
+      font-size: 0.9rem;
+    }
+    .quiz-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #A8E6CF;
+      color: #A8E6CF;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover {
+      background: #A8E6CF;
+      color: #0A0A0A;
+    }
+    .datenschutz-hinweis {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+      text-align: center;
+    }
+
     @media (max-width: 600px) {
       .pfeiler-grid {
         grid-template-columns: 1fr;
@@ -367,6 +507,13 @@
       .chat-question,
       .chat-answer {
         max-width: 100%;
+      }
+      .quiz-question {
+        font-size: 1.5rem;
+      }
+      .score-label {
+        flex-basis: 120px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -401,6 +548,7 @@
       <a href="#teil4" class="nav-link">Teil IV</a>
       <a href="#aengste" class="nav-link">Ängste</a>
       <a href="#dialog" class="nav-link">Kritik</a>
+      <a href="#quiz" class="nav-link">Quiz</a>
       <a href="#leseprobe" class="nav-link">Leseprobe</a>
       <a href="#buch" class="nav-link">Das Buch</a>
       <a href="#download-shop" class="nav-link">Download / Kaufen</a>
@@ -415,6 +563,8 @@
       <blockquote class="prolog-quote">
         »Bevor der Riss die Welt teilte, waren wir nicht Beobachter, sondern Teil eines lebendigen Ganzen – eingewoben in den Rhythmus der Ur-Natur.«
       </blockquote>
+      <div class="quote-mint">
+        »Dies ist der verlorene Kontinent, nach dem sich jede Faser unserer Biologie sehnt.«
       </div>
     </section>
 
@@ -453,6 +603,7 @@
             <div class="zitat">
               „Dies ist der verlorene Kontinent, nach dem sich jede Faser unserer Biologie sehnt."
             </div>
+            <span class="kapitel-verweis">→ Siehe Kapitel 1: „Die Ur-Trennung"</span>
           </article>
 
           <article class="pfeiler-card">
@@ -469,6 +620,7 @@
             <div class="zitat">
               „Die Natur ist nicht dein Objekt – sie ist dein Körper. Die Klimakrise ist nicht das Problem – sie ist das Symptom."
             </div>
+            <span class="kapitel-verweis">→ Siehe Kapitel 2: „Der individuelle Kern" und Kapitel 11: „Die planetarischen Konsequenzen"</span>
           </article>
 
           <article class="pfeiler-card">
@@ -485,6 +637,7 @@
             <div class="zitat">
               „Die Ablenkungsmaschine ist kein Fehler des Systems – sie ist das System."
             </div>
+            <span class="kapitel-verweis">→ Siehe Kapitel 5: „Die Gesellschaft als Ablenkungsmaschine"</span>
           </article>
         </div>
 
@@ -531,55 +684,42 @@
         </p>
 
         <div class="blasen-grid">
-          <!-- Blase 1 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor dem Tod', 'Der Tod ist nicht dein Feind – er ist der einzige Ausgang aus dem Käfig. Die Angst vor dem Tod ist die Angst vor der Wahrheit, dass der Käfig keine Freiheit war. Wer den Tod fürchtet, fürchtet das, was bleibt, wenn die Ablenkungen verstummen.', 'Kapitel 12: Leben im Schatten des Todes')">
             <i class="fas fa-skull"></i> Tod
           </button>
-          <!-- Blase 2 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Armut & Abstieg', 'Deine Angst vor Geldmangel ist real – aber sie ist nicht das, was du denkst. Die wahre Armut ist nicht der Mangel an Geld – es ist der Mangel an Gemeinschaft, an Zeit, an einem Leben, das nicht der Verwertung dient.', 'Kapitel 5.2: Die Ökonomie')">
             <i class="fas fa-coins"></i> Armut
           </button>
-          <!-- Blase 3 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Einsamkeit & Ausgrenzung', 'Du fürchtest die Einsamkeit – aber du lebst in der grössten Einsamkeit, die es je gab. Der Käfig hat dir tausend Verbindungen gegeben – und dir die eine genommen, die zählt. Die Einsamkeit, die du fürchtest, ist nicht die Abwesenheit von Menschen – es ist die Abwesenheit von dir selbst.', 'Kapitel 3.1: Die Ökonomie der Aufmerksamkeit')">
             <i class="fas fa-user-slash"></i> Einsamkeit
           </button>
-          <!-- Blase 4 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Klimazerstörung', 'Du fürchtest die Zerstörung der Natur – aber du siehst nicht, dass du selbst Teil der Zerstörung bist. Die Natur ist nicht dein Objekt – sie ist dein Körper. Die Klimakrise ist nicht das Problem – sie ist das Symptom eines tieferen Risses.', 'Kapitel 11: Die planetarischen Konsequenzen')">
             <i class="fas fa-globe-europe"></i> Klima
           </button>
-          <!-- Blase 5 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor KI & Digitalisierung', 'Du fürchtest, dass die Maschinen dich ersetzen. Aber du hast die Kontrolle nie gehabt – der Käfig hat sie dir schon längst genommen. Die KI ist nicht dein Feind – sie ist der Spiegel deiner eigenen Abstraktion.', 'Kapitel 9: Die digitalen Brandbeschleuniger')">
             <i class="fas fa-robot"></i> KI
           </button>
-          <!-- Blase 6 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor autoritären Herrschern', 'Du fürchtest die Mächtigen – und du hast recht. Aber sie sind nicht die Ursache – sie sind die Symptome. Der Käfig braucht starke Männer, weil er ohne sie nicht bestehen kann.', 'Kapitel 8.6: Der ewige Krieg der Gruppen')">
             <i class="fas fa-crown"></i> Herrscher
           </button>
-          <!-- Blase 7 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Bedeutungslosigkeit', 'Du fürchtest, bedeutungslos zu sein – aber du hast die Bedeutung nie gesucht, du hast sie nur abgelenkt. Die Bedeutung ist nicht ausserhalb von dir – sie ist in dir. Du kannst sie nicht finden – du kannst sie nur leben.', 'Kapitel 12.3: Der Tod als Spiegel der Leere')">
             <i class="fas fa-ghost"></i> Leere
           </button>
-          <!-- Blase 8 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Krieg', 'Deine Angst vor Krieg ist real – aber sie ist auch ein Werkzeug des Käfigs. Der Krieg ist nicht das Problem – er ist das Symptom einer Zivilisation, die keine Alternative zum Konflikt kennt.', 'Kapitel 8.6: Der ewige Krieg der Gruppen')">
             <i class="fas fa-bomb"></i> Krieg
           </button>
-          <!-- Blase 9 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Krankheit & Alter', 'Du fürchtest den Verfall deines Körpers. Aber diese Angst ist nicht deine Schwäche – sie ist die Erinnerung deines Körpers an das, was er verloren hat. Die Angst vor Krankheit ist die Angst vor dem, was bleibt, wenn die Ablenkungen verstummen.', 'Kapitel 12: Leben im Schatten des Todes')">
             <i class="fas fa-heartbeat"></i> Krankheit
           </button>
-          <!-- Blase 10 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor Überforderung des Staates', 'Du fürchtest, dass der Staat die Kontrolle verliert. Aber diese Angst lenkt deinen Blick auf die Schwächeren, damit du nicht siehst, wer dich wirklich gefangen hält. Der Staat ist nicht überfordert – er ist Teil der Ablenkungsmaschine.', 'Kapitel 5.3: Die Politik')">
             <i class="fas fa-landmark"></i> Staat
           </button>
-          <!-- Blase 11 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor dem Unbekannten', 'Die Angst vor dem Unbekannten ist die Angst vor dem, was der Käfig nicht kontrollieren kann. Die Zukunft ist nicht dein Feind – sie ist der einzige Ort, an dem etwas Neues entstehen kann.', 'Kapitel 12: Leben im Schatten des Todes')">
             <i class="fas fa-question"></i> Unbekannt
           </button>
-          <!-- Blase 12 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor dem Verlust von Angehörigen', 'Du fürchtest den Verlust derer, die du liebst. Aber diese Angst ist die Kehrseite der Liebe – und die Liebe ist das Einzige, was dem Riss standhält. Du kannst den Verlust nicht verhindern – aber du kannst lernen, ihn zu tragen.', 'Kapitel 13: Liebe als sublime Ablenkung')">
             <i class="fas fa-heart-broken"></i> Verlust
           </button>
-          <!-- Blase 13 -->
           <button class="angst-blase" onclick="openAngstModal('Angst vor der eigenen Leere', 'Du fürchtest die Leere in dir – aber die Leere ist nicht dein Feind. Sie ist der Ort, an dem der Riss sichtbar wird. Die Leere ist nicht das Problem – sie ist die Voraussetzung für alles, was echt ist.', 'Kapitel 7.7: Die Stille nach dem Lärm')">
             <i class="fas fa-circle-notch"></i> Leere
           </button>
@@ -792,14 +932,31 @@
       </div>
     </section>
 
+    <!-- ===== NEU: GLAUBENSSATZ-QUIZ ===== -->
+    <section id="quiz" aria-labelledby="quiz-heading">
+      <div class="container quiz-container">
+        <h2 id="quiz-heading" class="section-title">Welcher Glaubenssatz steuert dich?</h2>
+        <p style="text-align:center; max-width:700px; margin:0 auto 2rem auto; color:#B0B0B0; font-family:'Source Serif 4', serif;">
+          Beantworte die folgenden Fragen so ehrlich wie möglich – ohne lange nachzudenken. Am Ende erfährst du, welcher Glaubenssatz dich unbewusst am stärksten beeinflusst.
+        </p>
+
+        <!-- Quiz wird hier dynamisch gerendert -->
+        <div id="quiz-app"></div>
+
+        <div class="datenschutz-hinweis">
+          🔒 Diese Website speichert keine deiner Antworten. Alle Berechnungen erfolgen lokal in deinem Browser.
+        </div>
+      </div>
+    </section>
+
     <!-- ===== BUCH-SEKTION ===== -->
     <section id="buch" aria-labelledby="buch-heading">
       <div class="container">
         <h2 id="buch-heading" class="section-title">De Discidio In Caveam</h2>
         <div class="buch-container">
-        <div class="buch-cover">
-          <img src="de.discidio-cover.png" alt="Buchcover" style="width:100%;height:100%;object-fit:cover;">
-            </div>
+          <div class="buch-cover">
+            <img src="de.discidio-cover.png" alt="Buchcover" style="width:100%;height:100%;object-fit:cover;">
+          </div>
           <div class="buch-info">
             <h3>De Discidio In Caveam – Vom Riss zum Käfig</h3>
             <p class="untertitel">Eine Anatomie des modernen Leidens</p>
@@ -814,7 +971,7 @@
               <a href="#" class="btn btn-outline">Ebook kostenlos</a>
             </div>
             <p style="font-size:0.9rem; color:#B0B0B0; margin-top:1rem;">
-              * Links sind noch nicht verbunden.
+              * Alle Links führen zur Buchseite deiner Wahl.
             </p>
           </div>
         </div>
@@ -864,7 +1021,7 @@
             <a href="#" aria-label="Taschenbuch (bald verfügbar)"><i class="fas fa-book-open"></i> Taschenbuch (Teil I - IV)</a>
             <a href="#" aria-label="Hardcover (bald verfügbar)"><i class="fas fa-bookmark"></i> Hardcover (Gesammelte Ausgabe)</a>
           </div>
-          <p class="small-note">Erscheint auch irgendwann im Buchhandel.</p>
+          <p class="small-note">Erscheint bald im Buchhandel.</p>
         </div>
       </div>
     </section>
@@ -906,18 +1063,271 @@
     function closeAngstModal() {
       document.getElementById('angstModal').classList.remove('active');
     }
-    // Modal schließen bei Klick auf Hintergrund
     document.getElementById('angstModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeAngstModal();
-      }
+      if (e.target === this) closeAngstModal();
     });
-    // Escape-Taste schließt Modal
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeAngstModal();
-      }
+      if (e.key === 'Escape') closeAngstModal();
     });
+  </script>
+
+  <!-- ===== QUIZ-SKRIPT ===== -->
+  <script>
+    (function() {
+      // Daten
+      const questions = [
+        {
+          question: "Was machst du, wenn du einen freien Tag hast?",
+          answers: [
+            { text: "Ich plane ihn genau – ich will nichts dem Zufall überlassen.", points: { progress: 4, rationality: 2 } },
+            { text: "Ich lasse ihn auf mich zukommen – ich mag es, spontan zu sein.", points: { rationality: 3, love: 3 } },
+            { text: "Ich verbringe ihn mit Menschen, die mir wichtig sind.", points: { love: 4, moral: 2 } },
+            { text: "Ich tue etwas, das mich wirklich erfüllt – ob es wichtig ist oder nicht.", points: { justice: 4, individualism: 2 } }
+          ]
+        },
+        {
+          question: "Was machst du, wenn du dich erschöpft fühlst?",
+          answers: [
+            { text: "Ich funktioniere trotzdem weiter – irgendwann ist es vorbei.", points: { individualism: 4, progress: 2 } },
+            { text: "Ich ziehe mich zurück und lasse alles liegen.", points: { rationality: 4, love: 2 } },
+            { text: "Ich suche Nähe – bei Menschen, die mir guttun.", points: { love: 4, moral: 2 } },
+            { text: "Ich frage mich, warum ich mich so fühle – und versuche, etwas zu ändern.", points: { justice: 4, rationality: 2 } }
+          ]
+        },
+        {
+          question: "Was machst du in einer schwierigen Situation?",
+          answers: [
+            { text: "Ich suche nach einer Lösung – und zwar schnell.", points: { progress: 4, technology: 2 } },
+            { text: "Ich vertraue darauf, dass sich alles irgendwie fügt.", points: { love: 4, rationality: 2 } },
+            { text: "Ich rede mit anderen darüber – und höre auf ihren Rat.", points: { democracy: 3, moral: 3 } },
+            { text: "Ich höre in mich hinein – und entscheide nach Gefühl.", points: { individualism: 4, justice: 2 } }
+          ]
+        },
+        {
+          question: "Was fehlt dir im Alltag am meisten?",
+          answers: [
+            { text: "Struktur – dass ich weiss, was als Nächstes kommt.", points: { progress: 4, democracy: 2 } },
+            { text: "Ruhe – dass ich einfach mal sein kann.", points: { rationality: 4, love: 2 } },
+            { text: "Echte Nähe – Menschen, die mich wirklich sehen.", points: { love: 4, moral: 2 } },
+            { text: "Bedeutung – das Gefühl, dass das, was ich tue, zählt.", points: { justice: 4, individualism: 2 } }
+          ]
+        },
+        {
+          question: "Was macht dich wirklich wütend?",
+          answers: [
+            { text: "Wenn andere meine Zeit verschwenden.", points: { individualism: 4, progress: 2 } },
+            { text: "Wenn ich mich selbst nicht ernst nehme.", points: { rationality: 4, love: 2 } },
+            { text: "Wenn andere ungerecht behandelt werden.", points: { moral: 4, justice: 2 } },
+            { text: "Wenn ich sehe, dass die Welt sich nicht verändert.", points: { progress: 4, democracy: 2 } }
+          ]
+        },
+        {
+          question: "Was machst du, wenn du dich einsam fühlst?",
+          answers: [
+            { text: "Ich lenke mich ab – Arbeit, Serien, Social Media.", points: { technology: 4, individualism: 2 } },
+            { text: "Ich bin einfach damit – es ist, wie es ist.", points: { rationality: 4, love: 2 } },
+            { text: "Ich suche Kontakt – zu Menschen, die mir nahestehen.", points: { love: 4, moral: 2 } },
+            { text: "Ich frage mich, warum ich mich so fühle – und versuche, es zu verstehen.", points: { justice: 4, rationality: 2 } }
+          ]
+        },
+        {
+          question: "Was würdest du tun, wenn du eine Sache in der Welt verändern könntest?",
+          answers: [
+            { text: "Ich würde die Menschen dazu bringen, vernünftiger zu handeln.", points: { progress: 4, rationality: 2 } },
+            { text: "Ich würde die Menschen dazu bringen, achtsamer zu sein.", points: { love: 4, moral: 2 } },
+            { text: "Ich würde die Menschen dazu bringen, mehr aufeinander zu achten.", points: { moral: 4, justice: 2 } },
+            { text: "Ich würde die Menschen dazu bringen, zu verstehen, worum es wirklich geht.", points: { rationality: 4, justice: 2 } }
+          ]
+        },
+        {
+          question: "Wie stehst du zu Regeln und Gesetzen?",
+          answers: [
+            { text: "Sie geben mir Sicherheit – ich weiss, woran ich bin.", points: { progress: 4, democracy: 2 } },
+            { text: "Sie schränken mich ein – ich möchte selbst entscheiden.", points: { individualism: 4, rationality: 2 } },
+            { text: "Sie sind notwendig – aber sie sollten fair sein.", points: { democracy: 4, moral: 2 } },
+            { text: "Sie sind ein Werkzeug – aber sie sollten nicht alles bestimmen.", points: { justice: 4, rationality: 2 } }
+          ]
+        },
+        {
+          question: "Was ist für dich ein gelungener Tag?",
+          answers: [
+            { text: "Wenn ich alles geschafft habe, was ich mir vorgenommen habe.", points: { individualism: 4, progress: 2 } },
+            { text: "Wenn ich mich wohlgefühlt habe – ohne Druck.", points: { love: 4, rationality: 2 } },
+            { text: "Wenn ich mit anderen Menschen verbunden war.", points: { moral: 4, love: 2 } },
+            { text: "Wenn ich das Gefühl hatte, etwas Sinnvolles getan zu haben.", points: { justice: 4, moral: 2 } }
+          ]
+        },
+        {
+          question: "Was tust du, wenn du eine schwierige Entscheidung treffen musst?",
+          answers: [
+            { text: "Ich suche nach Fakten – und entscheide rational.", points: { rationality: 4, progress: 2 } },
+            { text: "Ich höre auf mein Bauchgefühl – und entscheide intuitiv.", points: { love: 4, individualism: 2 } },
+            { text: "Ich hole mir Rat – und entscheide im Austausch.", points: { democracy: 4, moral: 2 } },
+            { text: "Ich überlege, was langfristig das Beste wäre – und entscheide entsprechend.", points: { justice: 4, rationality: 2 } }
+          ]
+        }
+      ];
+
+      const results = {
+        progress: { title: "Der Fortschrittsglaube", text: "Du glaubst, dass die Geschichte auf eine bessere Zukunft zusteuert. Vielleicht denkst du an technologische Durchbrüche, an eine gerechtere Gesellschaft oder an eine moralisch bessere Welt. Aber der Fortschritt ist kein Faktum – er ist ein Glaubenssatz. Er vertröstet auf eine Zukunft, die nie kommt – und verhindert, dass du den Riss in der Gegenwart siehst. Wer an den Fortschritt glaubt, glaubt an eine Geschichte, die nicht bewiesen ist." },
+        individualism: { title: "Der Individualismus", text: "Du glaubst, dass jeder seines Glückes Schmied ist. Dass du dein Leben selbst in der Hand hast – und dass du nur genug arbeiten, optimieren, disziplinieren musst. Aber der Mensch ist kein autonomes Wesen. Er ist ein soziales Wesen, das in Abhängigkeiten lebt, die es nicht gewählt hat. Der Individualismus entlastet die Gesellschaft – und gibt dir die Schuld für dein Leid." },
+        rationality: { title: "Der Rationalitätsglaube", text: "Du glaubst, dass der Mensch aus Vernunft handelt. Aber das ist ein Glaubenssatz – kein Faktum. Der Mensch handelt aus Trieb, Angst und Gewohnheit – und rationalisiert nur nachträglich, was er getan hat. Die Annahme, dass der Mensch rational sei, ist selbst ein Konstrukt, das die Ablenkungsmaschine stützt." },
+        technology: { title: "Der Technologieglaube", text: "Du glaubst, dass Technologie die Probleme der Menschheit lösen wird. Aber die Technologie ist ein Werkzeug – und sie wurde zum Meister. Der Glaube, dass Technologie die Lösung ist, ist selbst ein Produkt der Abstraktion, die den Menschen aus der Einheit mit der Welt riss. Wer an die Technologie glaubt, glaubt an eine Lösung, die das Problem nur in eine andere Form giest." },
+        moral: { title: "Der Moralismus", text: "Du glaubst, dass die Menschheit moralisch besser wird. Dass Grausamkeit, Ungerechtigkeit und Ausbeutung im Laufe der Geschichte abnehmen. Aber der Mensch hat nicht weniger Grausamkeit produziert – er hat sie nur unsichtbarer gemacht. Der moralische Fortschritt ist eine Illusion, die den Riss überdeckt." },
+        democracy: { title: "Der Demokratieglaube", text: "Du glaubst, dass Demokratie die beste aller Staatsformen ist. Aber die Demokratie ist ein Verfahren – keine Lösung. Sie gibt dir das Gefühl, mitzubestimmen – während die eigentlichen Entscheidungen längst gefallen sind. Wer an die Demokratie glaubt, glaubt an eine Illusion der Partizipation, die den Riss nur überdeckt." },
+        love: { title: "Der Erlösungsglaube", text: "Du glaubst, dass die Liebe dich retten wird. Dass der andere Mensch die Leere füllen kann, die du in dir trägst. Aber die Liebe ist die schönste aller Ablenkungen. Sie überbrückt den Riss für einen Moment – aber sie schliesst ihn nicht. Wer an die Liebe als Erlösung glaubt, glaubt an eine Illusion, die das Discidium nur bestätigt." },
+        justice: { title: "Der Erfüllungsglaube", text: "Du glaubst, dass die Lösung in der Veränderung der äusseren Umstände liegt. Dass du nur die richtigen Rahmenbedingungen schaffen musst – dann wird alles gut. Aber die äusseren Umstände sind nur eine Manifestation des Risses, nicht seine Ursache. Wer nur die Umstände verändert, behandelt ein Symptom – nicht die Krankheit." }
+      };
+
+      // State
+      let currentQuestion = 0;
+      let scores = {
+        progress: 0,
+        individualism: 0,
+        rationality: 0,
+        technology: 0,
+        moral: 0,
+        democracy: 0,
+        love: 0,
+        justice: 0
+      };
+
+      const quizApp = document.getElementById('quiz-app');
+
+      function renderQuestion() {
+        const q = questions[currentQuestion];
+        const progressPercent = (currentQuestion / questions.length) * 100;
+        let html = `
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${progressPercent}%"></div>
+          </div>
+          <div class="quiz-question">${q.question}</div>
+          <div class="quiz-answers">
+        `;
+        q.answers.forEach((answer, index) => {
+          html += `<button class="quiz-answer" data-index="${index}">${answer.text}</button>`;
+        });
+        html += `</div>`;
+        quizApp.innerHTML = html;
+
+        document.querySelectorAll('.quiz-answer').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-index'));
+            const answer = q.answers[idx];
+            // Punkte vergeben
+            for (const [key, value] of Object.entries(answer.points)) {
+              scores[key] += value;
+            }
+            // visuelles Feedback
+            this.classList.add('selected');
+            this.disabled = true;
+            // nächste Frage oder Ergebnis
+            setTimeout(() => {
+              currentQuestion++;
+              if (currentQuestion < questions.length) {
+                renderQuestion();
+              } else {
+                renderResult();
+              }
+            }, 300);
+          });
+        });
+      }
+
+      function renderResult() {
+        // höchsten Score finden
+        let maxScore = 0;
+        let dominant = null;
+        for (const [key, value] of Object.entries(scores)) {
+          if (value > maxScore) {
+            maxScore = value;
+            dominant = key;
+          }
+        }
+
+        const result = results[dominant];
+        let html = `
+          <div class="quiz-result">
+            <h3>${result.title}</h3>
+            <div class="result-text">
+              <p style="color:#B0B0B0; font-family:'Source Serif 4', serif; font-size:1.2rem;">${result.text}</p>
+            </div>
+            <div class="score-overview">
+              <h4 style="font-family:'Inter Tight', sans-serif; color:#FFFFFF; margin-bottom:1rem;">Punkteübersicht</h4>
+        `;
+
+        const sortedScores = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+        sortedScores.forEach(([key, value]) => {
+          const labelMap = {
+            progress: "Fortschrittsglaube",
+            individualism: "Individualismus",
+            rationality: "Rationalitätsglaube",
+            technology: "Technologieglaube",
+            moral: "Moralismus",
+            democracy: "Demokratieglaube",
+            love: "Erlösungsglaube",
+            justice: "Erfüllungsglaube"
+          };
+          const maxPossible = 20; // max points possible per belief (approx)
+          const widthPercent = Math.min((value / maxPossible) * 100, 100);
+          html += `
+            <div class="score-item">
+              <span class="score-label">${labelMap[key]}</span>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: ${widthPercent}%"></div>
+              </div>
+              <span class="score-value">${value}</span>
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+            <div class="quiz-buttons">
+              <button class="btn-secondary" id="restartQuiz">Quiz wiederholen</button>
+              <button class="btn-secondary" id="shareQuiz">Ergebnis teilen</button>
+            </div>
+            <p style="font-size:0.9rem; color:#777; margin-top:1.5rem;">
+              💡 Mache einen Screenshot, um dein Ergebnis zu speichern. Diese Website speichert keine Daten.
+            </p>
+          </div>
+        `;
+        quizApp.innerHTML = html;
+
+        document.getElementById('restartQuiz').addEventListener('click', () => {
+          currentQuestion = 0;
+          scores = {
+            progress: 0,
+            individualism: 0,
+            rationality: 0,
+            technology: 0,
+            moral: 0,
+            democracy: 0,
+            love: 0,
+            justice: 0
+          };
+          renderQuestion();
+        });
+
+        document.getElementById('shareQuiz').addEventListener('click', () => {
+          const text = `Mein dominanter Glaubenssatz: ${result.title}. ${result.text}`;
+          if (navigator.share) {
+            navigator.share({
+              title: 'Mein Glaubenssatz-Ergebnis',
+              text: text,
+              url: window.location.href
+            }).catch(() => {});
+          } else {
+            navigator.clipboard.writeText(text + ' ' + window.location.href)
+              .then(() => alert('Ergebnis in die Zwischenablage kopiert!'))
+              .catch(() => {});
+          }
+        });
+      }
+
+      // Start
+      renderQuestion();
+    })();
   </script>
 </body>
 </html>
