@@ -485,7 +485,7 @@
       text-align: center;
     }
 
-    /* ===== STERNENHIMMEL ===== */
+    /* ===== STERNENHIMMEL (überarbeitet) ===== */
     #sternenhimmel {
       padding-top: 5rem;
       padding-bottom: 5rem;
@@ -495,34 +495,30 @@
       max-width: 100%;
       margin: 0 auto;
       overflow: hidden;
-      background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+      background: #050505;
       border-radius: 16px;
       border: 1px solid #222;
       height: 600px;
     }
-    .sky-inner {
+    /* Riss als SVG */
+    .riss-svg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      transition: transform 0.3s ease;
-      transform-origin: center center;
-    }
-    .riss-line {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 2px;
-      background: rgba(168, 230, 207, 0.3);
-      transform: translateX(-50%);
-      animation: rissPuls 4s ease-in-out infinite;
+      pointer-events: none;
       z-index: 1;
     }
+    .riss-path {
+      fill: none;
+      stroke: #A8E6CF;
+      stroke-width: 1.5;
+      animation: rissPuls 4s ease-in-out infinite;
+    }
     @keyframes rissPuls {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.8; }
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.9; }
     }
     .star {
       position: absolute;
@@ -541,17 +537,20 @@
     .star i {
       font-size: 1.5rem;
       color: #A8E6CF;
-      animation: flacker 3s ease-in-out infinite;
     }
+    /* Sehende: Gold, flackernd */
     .star.sehend i {
       color: #FFD700;
       text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+      animation: flackerSehend 3s ease-in-out infinite;
     }
+    /* Bewahrende: Silber, gleichmässig leuchtend */
     .star.bewahrend i {
-      color: #A8C0E0;
-      text-shadow: 0 0 10px #A8C0E0, 0 0 20px #A8C0E0;
+      color: #C0C0C0;
+      text-shadow: 0 0 8px #C0C0C0;
+      animation: none; /* kein Flackern */
     }
-    @keyframes flacker {
+    @keyframes flackerSehend {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.7; }
     }
@@ -586,7 +585,7 @@
       color: #0A0A0A;
     }
 
-    /* Stern-Modal */
+    /* Stern-Modal: linke goldene Linie */
     .stern-modal-overlay {
       display: none;
       position: fixed;
@@ -609,6 +608,7 @@
       max-width: 600px;
       width: 90%;
       border: 1px solid #A8E6CF;
+      border-left: 3px solid #FFD700;
       box-shadow: 0 0 40px rgba(0,0,0,0.7);
       position: relative;
     }
@@ -725,6 +725,9 @@
         <blockquote class="prolog-quote">
           »Bevor der Riss die Welt teilte, waren wir nicht Beobachter, sondern Teil eines lebendigen Ganzen – eingewoben in den Rhythmus der Ur-Natur.«
         </blockquote>
+        <div class="quote-mint">
+          »Dies ist der verlorene Kontinent, nach dem sich jede Faser unserer Biologie sehnt.«
+        </div>
       </div>
     </section>
 
@@ -761,6 +764,7 @@
             <div class="zitat">
               „Dies ist der verlorene Kontinent, nach dem sich jede Faser unserer Biologie sehnt."
             </div>
+            <span class="kapitel-verweis">→ Siehe Kapitel 1: „Die Ur-Trennung"</span>
           </article>
 
           <article class="pfeiler-card">
@@ -777,6 +781,7 @@
             <div class="zitat">
               „Die Natur ist nicht dein Objekt – sie ist dein Körper. Die Klimakrise ist nicht das Problem – sie ist das Symptom."
             </div>
+            <span class="kapitel-verweis">→ Siehe Kapitel 2: „Der individuelle Kern" und Kapitel 11: „Die planetarischen Konsequenzen"</span>
           </article>
 
           <article class="pfeiler-card">
@@ -793,6 +798,7 @@
             <div class="zitat">
               „Die Ablenkungsmaschine ist kein Fehler des Systems – sie ist das System."
             </div>
+            <span class="kapitel-verweis">→ Siehe Kapitel 5: „Die Gesellschaft als Ablenkungsmaschine"</span>
           </article>
         </div>
 
@@ -1074,7 +1080,7 @@
       </div>
     </section>
 
-    <!-- ===== STERNENHIMMEL ===== -->
+    <!-- ===== STERNENHIMMEL (mit fixen Koordinaten) ===== -->
     <section id="sternenhimmel" aria-labelledby="sternenhimmel-heading">
       <div class="container">
         <h2 id="sternenhimmel-heading" class="section-title">Sternenhimmel der Erkenntnis</h2>
@@ -1084,7 +1090,9 @@
 
         <div class="sky-container" id="skyContainer">
           <div class="sky-inner" id="skyInner">
-            <div class="riss-line" id="rissLine"></div>
+            <svg class="riss-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path class="riss-path" d="M 32 20 Q 50 50 68 80" />
+            </svg>
             <!-- Sterne werden per JavaScript eingefügt -->
           </div>
           <div class="zoom-controls">
@@ -1432,151 +1440,153 @@
     })();
   </script>
 
-  <!-- ===== STERNENHIMMEL-SKRIPT ===== -->
+  <!-- ===== STERNENHIMMEL-SKRIPT (mit fixen Koordinaten) ===== -->
   <script>
     (function() {
+      // 20 Denker mit festen Koordinaten (in % des Containers)
+      // Sehende: offene Hand (links) – Bewahrende: geschlossene Faust (rechts)
       const starsData = [
-        // === SEHENDE (gold) ===
+        // === SEHENDE (gold, offene Hand) ===
         {
           name: 'Sigmund Freud',
           text: 'Freud hat das gespürt, was ich das Discidium nenne – nur nannte er es das Unbehagen. Er sah drei Quellen des Leidens, aber er blieb in den Symptomen stecken. Ich gehe weiter.',
-          quote: 'Die individuelle Freiheit ist kein Kulturgut. Sie war am größten vor jeder Kultur, allerdings damals meist ohne Wert, weil das Individuum kaum imstande war, sie zu verteidigen.',
+          quote: 'Wir haben die Antwort bereits gegeben, indem wir auf die drei Quellen hinwiesen, aus denen unser Leiden kommt: die Übermacht der Natur, die Hinfälligkeit unseres eigenen Körpers und die Unzulänglichkeit der Einrichtungen, welche die Beziehungen der Menschen zueinander in Familie, Staat und Gesellschaft regeln.',
           source: 'Sigmund Freud, Das Unbehagen in der Kultur (1930), Kapitel 3',
-          type: 'sehend', x: 15, y: 30
+          type: 'sehend', x: 15, y: 60
         },
         {
           name: 'Arthur Schopenhauer',
           text: 'Schopenhauer ist dem Discidium am nächsten gekommen, ohne es beim Namen zu nennen. Er sah den blinden Willen – und die Trennung des Menschen von ihm.',
           quote: 'Die Welt ist meine Vorstellung: – dies ist die Wahrheit, welche in Beziehung auf jedes lebende und erkennende Wesen gilt; wiewohl der Mensch allein sie in das reflektirte abstrakte Bewußtseyn bringen kann.',
           source: 'Arthur Schopenhauer, Die Welt als Wille und Vorstellung (1819/1844), Erster Band, Erstes Buch',
-          type: 'sehend', x: 25, y: 45
+          type: 'sehend', x: 20, y: 45
         },
         {
           name: 'Karl Marx',
           text: 'Marx hat die Entfremdung gesehen – aber er dachte, der Kapitalismus sei die Ursache. Er übersah, dass der Kapitalismus nur ein Werkzeug des Risses ist.',
           quote: 'Die Entfremdung des Menschen, überhaupt jedes Verhältnis, in dem der Mensch zu sich selbst steht, ist erst verwirklicht, drückt sich aus …',
           source: 'Karl Marx, Ökonomisch-philosophische Manuskripte (1844), MEW, Ergänzungsband 1, S. 518',
-          type: 'sehend', x: 12, y: 55
+          type: 'sehend', x: 30, y: 35
         },
         {
           name: 'Friedrich Nietzsche',
           text: 'Nietzsche sah, dass die moderne Welt keine Kultur mehr hat – nur Wissen über Kultur. Er erkannte die Ablenkungsmaschine, bevor sie fertig gebaut war.',
           quote: 'Kultur ist vor allem Einheit des künstlerischen Stiles in allen Lebensäußerungen eines Volkes. Vieles Wissen und Gelernthaben ist aber weder ein notwendiges …',
           source: 'Friedrich Nietzsche, Unzeitgemäße Betrachtungen (1873–1876)',
-          type: 'sehend', x: 30, y: 25
+          type: 'sehend', x: 35, y: 50
         },
         {
           name: 'Max Weber',
           text: 'Weber nannte den Käfig das \'stahlharte Gehäuse\'. Er wusste, dass der moderne Mensch seine Freiheit gegen Sicherheit eingetauscht hat – und langsam erstickt.',
           quote: 'Fachmenschen ohne Geist, Genussmenschen ohne Herz: dies Nichts bildet sich ein, eine nie vorher erreichte Stufe des Menschentums erstiegen zu haben.',
           source: 'Max Weber, Die protestantische Ethik und der Geist des Kapitalismus (1904/1905)',
-          type: 'sehend', x: 18, y: 40
+          type: 'sehend', x: 40, y: 65
         },
         {
           name: 'Georg Simmel',
           text: 'Simmel beschrieb das neuro-endokrine Grundrauschen, bevor es messbar war. Er wusste: Die Stadt macht den Menschen krank – nicht, weil sie laut ist, sondern weil sie ihn zwingt, sich selbst zu verlassen.',
           quote: 'Diese Verstandesmäßigkeit, so als ein Präservativ des subjektiven Lebens gegen die Vergewaltigungen der Großstadt erkannt, verzweigt sich in und mit vielfachen …',
           source: 'Georg Simmel, Die Großstädte und das Geistesleben (1903)',
-          type: 'sehend', x: 8, y: 35
+          type: 'sehend', x: 45, y: 40
         },
         {
           name: 'Oswald Spengler',
           text: 'Spengler sah die Maschine, die sich gegen ihren Schöpfer wendet. Er beschrieb das gebaute Reich, bevor es seinen Namen hatte.',
           quote: 'Alles Organische erliegt der um sich greifenden Organisation. Eine künstliche Welt durchsetzt und vergiftet die natürliche. Die Zivilisation ist selbst eine Maschine geworden, die alles maschinenmäßig tut oder tun will.',
           source: 'Oswald Spengler, Der Mensch und die Technik (1931)',
-          type: 'sehend', x: 22, y: 15
+          type: 'sehend', x: 50, y: 55
         },
         {
           name: 'Erich Fromm',
           text: 'Fromm wusste, dass der Konsum den Menschen nicht sättigt, sondern leer macht. Er sah die Ablenkungsmaschine in ihrer perfidesten Form.',
           quote: 'Der moderne Kapitalismus braucht Menschen, die in großer Zahl reibungslos funktionieren, die immer mehr konsumieren wollen, deren Geschmack standardisiert ist und leicht vorausgesehen und beeinflußt werden kann.',
           source: 'Erich Fromm, Die Kunst des Liebens (1956)',
-          type: 'sehend', x: 35, y: 35
+          type: 'sehend', x: 55, y: 30
         },
         {
           name: 'Jean-Paul Sartre',
           text: 'Sartre beschrieb die existenzielle Konsequenz des Discidium: der Mensch ist allein mit seiner Freiheit – und die meisten fliehen in den Käfig.',
           quote: 'Frei sein heißt zum Freisein verurteilt sein.',
           source: 'Jean-Paul Sartre, Der Existentialismus ist ein Humanismus (1946)',
-          type: 'sehend', x: 28, y: 55
+          type: 'sehend', x: 60, y: 45
         },
         {
           name: 'Theodor W. Adorno & Siegfried Kracauer',
           text: 'Sie haben den Riss in ihrem eigenen Leben gespürt – und ihn benannt: \'Der Riß der Welt geht auch durch mich.\' Sie haben den Käfig beschrieben, bevor er sichtbar wurde.',
           quote: 'Der Riß der Welt geht auch durch mich. – Die Masse der Angestellten unterscheidet sich vom Arbeiter-Proletariat darin, dass sie geistig obdachlos ist.',
           source: 'Theodor W. Adorno & Siegfried Kracauer, Briefwechsel 1923–1966; Siegfried Kracauer, Die Angestellten (1930)',
-          type: 'sehend', x: 10, y: 20
+          type: 'sehend', x: 65, y: 60
         },
-        // === BEWAHRENDE (silber) ===
+        // === BEWAHRENDE (silber, geschlossene Faust) ===
         {
           name: 'Thomas Hobbes',
           text: 'Hobbes hat den Käfig theoretisch begründet: Der Mensch ist des Menschen Wolf – und nur der absolute Staat kann ihn zähmen. Er verkaufte die Kontrolle als Lösung.',
           quote: 'Bellum omnium contra omnes – Der Krieg aller gegen alle.',
           source: 'Thomas Hobbes, De Cive (1642)',
-          type: 'bewahrend', x: 70, y: 30
+          type: 'bewahrend', x: 35, y: 60
         },
         {
           name: 'John Locke',
           text: 'Locke erklärte das Eigentum zum Naturrecht – und schuf den Individualismus, der den Menschen in der Verantwortung für seinen eigenen Misserfolg zurücklässt.',
           quote: 'Obwohl die Erde und alle niederen Geschöpfe allen Menschen gemeinsam gehören, so besitzt dennoch jeder Mensch in seiner eigenen Person ein Eigentum, auf das niemand als er selbst ein Anrecht hat.',
           source: 'John Locke, Zwei Abhandlungen über die Regierung (1689)',
-          type: 'bewahrend', x: 75, y: 45
+          type: 'bewahrend', x: 40, y: 45
         },
         {
           name: 'Adam Smith',
           text: 'Smith erfand die \'unsichtbare Hand\' – eine Metapher, die bis heute das Herz der Ablenkungsmaschine ist. Er verkleidete den Käfig mit dem Versprechen des Wohlstands.',
           quote: 'Nicht vom Wohlwollen des Metzgers, Brauers oder Bäckers erwarten wir unsere Mahlzeit, sondern von deren Bedachtnahme auf ihr eigenes Interesse. Wir wenden uns nicht an ihre Menschenliebe, sondern an ihre Eigenliebe.',
           source: 'Adam Smith, Der Wohlstand der Nationen (1776)',
-          type: 'bewahrend', x: 88, y: 55
+          type: 'bewahrend', x: 45, y: 35
         },
         {
           name: 'Immanuel Kant',
           text: 'Kant setzte die Vernunft über alles – und begründete den Rationalitätsglauben, der den Menschen von seinem Fühlen trennt. Er verkleidete den Käfig mit der Idee der Autonomie.',
           quote: 'Handle nur nach derjenigen Maxime, durch die du zugleich wollen kannst, daß sie ein allgemeines Gesetz werde.',
           source: 'Immanuel Kant, Grundlegung zur Metaphysik der Sitten (1785)',
-          type: 'bewahrend', x: 70, y: 25
+          type: 'bewahrend', x: 50, y: 50
         },
         {
           name: 'Georg Wilhelm Friedrich Hegel',
           text: 'Hegel erfand den Fortschrittsglauben – die Idee, dass die Geschichte sich notwendig auf ein Ziel zubewegt. Er verkleidete den Käfig mit der Verheissung der Zukunft.',
           quote: 'Die Weltgeschichte ist der Fortschritt im Bewußtsein der Freiheit, – ein Fortschritt, den wir in seiner Notwendigkeit zu erkennen haben.',
           source: 'Georg Wilhelm Friedrich Hegel, Vorlesungen über die Philosophie der Geschichte (1837)',
-          type: 'bewahrend', x: 82, y: 40
+          type: 'bewahrend', x: 55, y: 65
         },
         {
           name: 'René Descartes',
           text: 'Descartes begründete die Trennung von Geist und Körper – und stellte das Denken über das Fühlen. Er verkleidete den Käfig mit der Idee der Klarheit.',
           quote: 'Ich denke, also bin ich.',
           source: 'René Descartes, Discours de la méthode (1637)',
-          type: 'bewahrend', x: 92, y: 35
+          type: 'bewahrend', x: 60, y: 40
         },
         {
           name: 'Gottfried Wilhelm Leibniz',
           text: 'Leibniz sagte, wir lebten in der besten aller möglichen Welten. Diese Behauptung ist die perfideste Form der Ablenkung: Sie rechtfertigt das Bestehende, noch bevor es hinterfragt werden kann.',
           quote: 'Wir leben in der besten aller möglichen Welten.',
           source: 'Gottfried Wilhelm Leibniz, Essais de Théodicée (1710) – allgemein anerkannte Wiedergabe seiner Kernaussage',
-          type: 'bewahrend', x: 78, y: 15
+          type: 'bewahrend', x: 65, y: 55
         },
         {
           name: 'Edmund Burke',
           text: 'Burke sah die Gesellschaft als heiligen Vertrag zwischen den Generationen – und brandmarkte jede Veränderung als Bruch mit der Ordnung. Er verkleidete den Käfig mit dem Mantel der Tradition.',
           quote: 'Die Gesellschaft ist eine Vertrag zwischen der Vergangenheit, der Gegenwart und den ungeborenen Menschen.',
           source: 'Edmund Burke, Reflections on the Revolution in France (1790)',
-          type: 'bewahrend', x: 65, y: 35
+          type: 'bewahrend', x: 70, y: 30
         },
         {
           name: 'Jeremy Bentham',
           text: 'Bentham reduzierte den Menschen auf eine Zahl – eine Einheit in einer gesellschaftlichen Nutzenrechnung. Er verkleidete den Käfig mit der Idee der Effizienz.',
           quote: 'Der einzig und allein gerechte und einzig und allein zu rechtfertigende Endzweck des Staates ist: Das größte Glück der größten Zahl.',
           source: 'Jeremy Bentham, An Introduction to the Principles of Morals and Legislation (1789)',
-          type: 'bewahrend', x: 72, y: 55
+          type: 'bewahrend', x: 75, y: 45
         },
         {
           name: 'John Stuart Mill',
           text: 'Mill stellte die Freiheit des Individuums in den Mittelpunkt – aber es war die Freiheit innerhalb des Käfigs, nicht die Freiheit, ihn zu verlassen.',
           quote: 'Der einzige Zweck, zu dem die Menschheit, einzeln oder kollektiv, berechtigt ist, in die Handlungsfreiheit eines ihrer Mitglieder einzugreifen, ist der Selbstschutz.',
           source: 'John Stuart Mill, On Liberty (1859)',
-          type: 'bewahrend', x: 90, y: 20
+          type: 'bewahrend', x: 80, y: 60
         }
       ];
 
@@ -1619,16 +1629,17 @@
       const skyContainer = document.getElementById('skyContainer');
       const zoomInBtn = document.getElementById('zoomIn');
       const zoomOutBtn = document.getElementById('zoomOut');
+      const rissPath = document.querySelector('.riss-path');
 
       function updateZoom() {
         skyInner.style.transform = `scale(${scale})`;
-        const riss = document.getElementById('rissLine');
+        // Riss bei Zoom deutlicher machen
         if (scale > 1.5) {
-          riss.style.background = 'rgba(168, 230, 207, 0.8)';
-          riss.style.width = '3px';
+          rissPath.style.strokeWidth = '3';
+          rissPath.style.opacity = '1';
         } else {
-          riss.style.background = 'rgba(168, 230, 207, 0.3)';
-          riss.style.width = '2px';
+          rissPath.style.strokeWidth = '1.5';
+          rissPath.style.opacity = '0.7';
         }
       }
 
