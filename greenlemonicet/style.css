@@ -1216,29 +1216,29 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Typ-Seher – Mintgrün */
-.stern-modal.modal-seher {
+.stern-modal-overlay.modal-seher .stern-modal {
   border-left-color: #A8E6CF;
 }
-.stern-modal.modal-seher .stern-modal-portrait {
+.stern-modal-overlay.modal-seher .stern-modal-portrait {
   border-color: #A8E6CF;
   box-shadow: 0 0 8px rgba(168, 230, 207, 0.4);
 }
-.stern-modal.modal-seher h3,
-.stern-modal.modal-seher #sternQuote {
+.stern-modal-overlay.modal-seher h3,
+.stern-modal-overlay.modal-seher #sternQuote {
   color: #A8E6CF;
   border-left-color: #A8E6CF;
 }
 
 /* Typ-Bewahrer – Pastellorange */
-.stern-modal.modal-bewahrer {
+.stern-modal-overlay.modal-bewahrer .stern-modal {
   border-left-color: #F5B07F;
 }
-.stern-modal.modal-bewahrer .stern-modal-portrait {
+.stern-modal-overlay.modal-bewahrer .stern-modal-portrait {
   border-color: #F5B07F;
   box-shadow: 0 0 8px rgba(245, 176, 127, 0.4);
 }
-.stern-modal.modal-bewahrer h3,
-.stern-modal.modal-bewahrer #sternQuote {
+.stern-modal-overlay.modal-bewahrer h3,
+.stern-modal-overlay.modal-bewahrer #sternQuote {
   color: #F5B07F;
   border-left-color: #F5B07F;
 }
