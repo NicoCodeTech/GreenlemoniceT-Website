@@ -207,7 +207,7 @@ document.addEventListener('keydown', function(e) {
 // ===== STERNENHIMMEL =====
 (function() {
   const starsData = [
-    // === SEHENDE (gold, chaotisch) ===
+    // === SEHER (ehemals Sehende) ===
     {
       name: 'Sigmund Freud',
       text: 'Freud hat das gespürt, was ich das Discidium nenne – nur nannte er es das Unbehagen. Er sah, dass der Mensch unter drei Dingen leidet: der Natur, die ihn überwältigt; dem Körper, der ihn im Stich lässt; und der Gesellschaft, die er selbst geschaffen hat, um sich zu schützen – und die ihn nun erdrückt. Die Kultur, die uns schützen sollte, ist der Käfig geworden. Freud hat den Riss gespürt, aber er blieb in den Symptomen stecken. Ich gehe weiter.',
@@ -288,7 +288,7 @@ document.addEventListener('keydown', function(e) {
       type: 'sehend', x: 68, y: 62,
       portrait: 'theodor.png'
     },
-    // === NEUE SEHENDE (gold) ===
+    // === NEUE SEHER ===
     {
       name: 'Rabindranath Tagore',
       text: 'Tagore erkannte, dass die moderne Zivilisation den Menschen in getrennte Sphären zerlegt – in Arbeit, Freizeit, Konsum, Glauben – und ihn so von der Einheit seines Lebens trennt. Diese Einheit, diese verlorene Mitte, ist der Zustand, in dem Denken, Fühlen und Handeln noch aus einem gemeinsamen Ursprung fliessen: der Ur-Natur, in der der Mensch nicht Beobachter, sondern Teil des Lebens war. Tagore sah, dass diese Einheit im Westen zerstört war, aber er übersah, dass auch Asien längst vom Discidium durchdrungen war – die koloniale Moderne hatte den Riss auch in seine eigene Welt getragen. Seine Kritik bleibt daher an der Oberfläche, weil sie den Feind im Westen sucht, statt den Riss in der Struktur der Moderne selbst zu erkennen.',
@@ -329,7 +329,7 @@ document.addEventListener('keydown', function(e) {
       type: 'sehend', x: 80, y: 25,
       portrait: 'edward.png'
     },
-    // === BEWAHRENDE (silber, chaotisch) ===
+    // === BEWAHRER (ehemals Bewahrende) ===
     {
       name: 'Thomas Hobbes',
       text: 'Hobbes beschrieb den Naturzustand des Menschen als einen Krieg aller gegen alle – eine radikale Diagnose, die tatsächlich auf etwas Echtes verweist: den Verlust der Einbettung, die Angst, die aus der Vereinzelung entsteht. Was er nicht erkannte, war, dass dieses „bellum omnium contra omnes“ nicht der Urzustand des Menschen ist, sondern eine Folge des Discidium – des Bruchs, der den Menschen aus der Gemeinschaft riss. Hobbes sah die Symptome des Risses, aber er hielt sie für die Natur des Menschen, nicht für die Wunde, die erst geheilt werden müsste.',
@@ -410,7 +410,7 @@ document.addEventListener('keydown', function(e) {
       type: 'bewahrend', x: 85, y: 58,
       portrait: 'john_stuart_mill.png'
     },
-    // === NEUE BEWAHRENDE (silber) ===
+    // === NEUE BEWAHRER ===
     {
       name: 'Han Feizi',
       text: 'Der chinesische Legalist vertrat die Ansicht, der Mensch sei von Natur aus selbstsüchtig und müsse durch strenge Gesetze gebändigt werden. Er baute den Käfig, indem er die Kontrolle als notwendige Ordnung rechtfertigte – eine der frühesten Rechtfertigungen des gebauten Reichs.',
@@ -476,6 +476,11 @@ document.addEventListener('keydown', function(e) {
       sternSource.textContent = star.source;
       sternPortrait.src = star.portrait;
       sternPortrait.alt = `Porträt von ${star.name}`;
+
+      // Modal-Farbklasse setzen – Seher/Mintgrün oder Bewahrer/Orange
+      sternModal.classList.remove('modal-seher', 'modal-bewahrer');
+      sternModal.classList.add(star.type === 'sehend' ? 'modal-seher' : 'modal-bewahrer');
+
       sternModal.classList.add('active');
     });
     skyInner.appendChild(btn);
