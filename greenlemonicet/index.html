@@ -449,19 +449,22 @@
       </div>
     </section>
 
-<div class="stern-modal">
-  <button class="stern-modal-close" id="sternModalClose">&times;</button>
-  <div class="stern-modal-header">
-    <div class="stern-modal-portrait">
-      <img id="sternPortrait" src="" alt="Porträt" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+    <!-- Stern-Modal -->
+    <div class="stern-modal-overlay" id="sternModal">
+      <div class="stern-modal">
+        <button class="stern-modal-close" id="sternModalClose">&times;</button>
+        <div class="stern-modal-header">
+          <div class="stern-modal-portrait">
+            <img id="sternPortrait" src="" alt="Porträt" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+          </div>
+          <h3 id="sternName"></h3>
+        </div>
+        <p id="sternText"></p>
+        <p id="sternQuote"></p>
+        <p id="sternSource" style="font-size:0.9rem; color:#777; margin-top:0.5rem;"></p>
+      </div>
     </div>
-    <h3 id="sternName"></h3>
-  </div>
-  <p id="sternText"></p>
-  <p id="sternQuote"></p>
-  <p id="sternSource" style="font-size:0.9rem; color:#777; margin-top:0.5rem;"></p>
-</div>
-</div>
+
     <!-- ===== GLAUBENSSATZ-QUIZ ===== -->
     <section id="quiz" aria-labelledby="quiz-heading">
       <div class="container quiz-container">
