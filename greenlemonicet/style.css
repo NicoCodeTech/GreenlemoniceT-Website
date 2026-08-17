@@ -1172,7 +1172,7 @@ a:focus-visible, button:focus-visible {
 .stern-modal h3 {
   font-family: 'Inter Tight', sans-serif;
   font-size: 1.6rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0;                 /* wichtig für den Header-Flex */
   padding-right: 2rem;
 }
 .stern-modal p {
@@ -1197,14 +1197,22 @@ a:focus-visible, button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
   overflow: hidden;
+  flex-shrink: 0;                  /* verhindert das Quetschen */
 }
 .stern-modal-portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+}
+
+/* NEU: Header-Container für Porträt und Name */
+.stern-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Typ-Seher – Mintgrün */
