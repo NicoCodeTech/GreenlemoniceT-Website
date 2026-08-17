@@ -1134,28 +1134,25 @@ a:focus-visible, button:focus-visible {
   z-index: 1100;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;                
-  overflow-y: auto;                
+  padding: 2rem 1rem;
+  overflow-y: auto;
 }
-
 .stern-modal-overlay.active {
   display: flex;
 }
-
 .stern-modal {
   background: #141414;
   border-radius: 16px;
-  padding: 1.5rem;                 
-  max-width: 500px;                
+  padding: 1.5rem;
+  max-width: 500px;
   width: 100%;
-  max-height: 80vh;               
-  overflow-y: auto;                
+  max-height: 80vh;
+  overflow-y: auto;
   border: 1px solid #A8E6CF;
-  border-left: 3px solid #FFD700;
+  border-left: 3px solid transparent;   /* wird je nach Typ gesetzt */
   box-shadow: 0 0 40px rgba(0,0,0,0.7);
   position: relative;
 }
-
 .stern-modal-close {
   position: absolute;
   top: 10px;
@@ -1166,41 +1163,42 @@ a:focus-visible, button:focus-visible {
   background: none;
   border: none;
   transition: color 0.2s;
-  z-index: 10;                      
+  z-index: 10;
 }
-
 .stern-modal-close:hover {
   color: #FFFFFF;
 }
-
 .stern-modal h3 {
-  color: #A8E6CF;
   font-family: 'Inter Tight', sans-serif;
-  font-size: 1.6rem;              
+  font-size: 1.6rem;
   margin-bottom: 0.8rem;
-  padding-right: 2rem;              
+  padding-right: 2rem;
 }
-
 .stern-modal p {
   color: #B0B0B0;
   font-family: 'Source Serif 4', serif;
-  font-size: 1.1rem;                /* etwas kleiner */
+  font-size: 1.1rem;
   line-height: 1.6;
 }
-
-/* Porträt im Modal – kleiner, rund und sauber beschnitten */
+/* Zitat im Modal */
+.stern-modal #sternQuote {
+  font-style: italic;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid transparent;
+}
+/* Porträt im Modal */
 .stern-modal-portrait {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 2px solid #FFD700;
+  border: 2px solid transparent;   /* wird je nach Typ gesetzt */
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
   overflow: hidden;
 }
-
 .stern-modal-portrait img {
   width: 100%;
   height: 100%;
@@ -1208,15 +1206,40 @@ a:focus-visible, button:focus-visible {
   border-radius: 50%;
 }
 
-/* Farbliche Hervorhebung im Sternenhimmel-Text */
-.gold {
-  color: #FFD700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+/* Typ-Seher – Mintgrün */
+.stern-modal.modal-seher {
+  border-left-color: #A8E6CF;
+}
+.stern-modal.modal-seher .stern-modal-portrait {
+  border-color: #A8E6CF;
+}
+.stern-modal.modal-seher h3,
+.stern-modal.modal-seher #sternQuote {
+  color: #A8E6CF;
+  border-left-color: #A8E6CF;
 }
 
-.silver {
-  color: #C0C0C0;
-  text-shadow: 0 0 20px rgba(192, 192, 192, 0.2);
+/* Typ-Bewahrer – Pastellorange */
+.stern-modal.modal-bewahrer {
+  border-left-color: #F5B07F;
+}
+.stern-modal.modal-bewahrer .stern-modal-portrait {
+  border-color: #F5B07F;
+}
+.stern-modal.modal-bewahrer h3,
+.stern-modal.modal-bewahrer #sternQuote {
+  color: #F5B07F;
+  border-left-color: #F5B07F;
+}
+
+/* Farbliche Hervorhebung im Sternenhimmel-Text */
+.seher {
+  color: #A8E6CF;
+  text-shadow: 0 0 20px rgba(168, 230, 207, 0.2);
+}
+.bewahrer {
+  color: #F5B07F;
+  text-shadow: 0 0 20px rgba(245, 176, 127, 0.2);
 }
 
 /* Responsive Anpassungen */
