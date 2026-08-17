@@ -1221,7 +1221,7 @@ a:focus-visible, button:focus-visible {
 }
 .stern-modal.modal-seher .stern-modal-portrait {
   border-color: #A8E6CF;
-  box-shadow: 0 0 10px rgba(168, 230, 207, 0.5);
+  box-shadow: 0 0 8px rgba(168, 230, 207, 0.4);
 }
 .stern-modal.modal-seher h3,
 .stern-modal.modal-seher #sternQuote {
@@ -1235,7 +1235,7 @@ a:focus-visible, button:focus-visible {
 }
 .stern-modal.modal-bewahrer .stern-modal-portrait {
   border-color: #F5B07F;
-  box-shadow: 0 0 10px rgba(245, 176, 127, 0.5);
+  box-shadow: 0 0 8px rgba(245, 176, 127, 0.4);
 }
 .stern-modal.modal-bewahrer h3,
 .stern-modal.modal-bewahrer #sternQuote {
