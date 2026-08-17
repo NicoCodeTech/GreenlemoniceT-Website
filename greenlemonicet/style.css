@@ -1101,14 +1101,15 @@ a:focus-visible, button:focus-visible {
   font-size: 1.5rem;
   color: #A8E6CF;
 }
+/* Finale Farbanpassung: Seher = Mintgrün, Bewahrer = Pastellorange */
 .star.sehend i {
-  color: #FFD700;
-  text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+  color: #A8E6CF;
+  text-shadow: 0 0 10px rgba(168, 230, 207, 0.8), 0 0 20px rgba(168, 230, 207, 0.5);
   animation: flackerSehend 3s ease-in-out infinite;
 }
 .star.bewahrend i {
-  color: #C0C0C0;
-  text-shadow: 0 0 8px #C0C0C0;
+  color: #F5B07F;
+  text-shadow: 0 0 10px rgba(245, 176, 127, 0.8), 0 0 20px rgba(245, 176, 127, 0.5);
   animation: flackerBewahrend 2s linear infinite;
 }
 @keyframes flackerSehend {
@@ -1212,6 +1213,7 @@ a:focus-visible, button:focus-visible {
 }
 .stern-modal.modal-seher .stern-modal-portrait {
   border-color: #A8E6CF;
+  box-shadow: 0 0 10px rgba(168, 230, 207, 0.5);
 }
 .stern-modal.modal-seher h3,
 .stern-modal.modal-seher #sternQuote {
@@ -1225,6 +1227,7 @@ a:focus-visible, button:focus-visible {
 }
 .stern-modal.modal-bewahrer .stern-modal-portrait {
   border-color: #F5B07F;
+  box-shadow: 0 0 10px rgba(245, 176, 127, 0.5);
 }
 .stern-modal.modal-bewahrer h3,
 .stern-modal.modal-bewahrer #sternQuote {
