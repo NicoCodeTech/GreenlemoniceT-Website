@@ -27,7 +27,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Ich plane ihn genau – ich will nichts dem Zufall überlassen.', points: { progress: 4, rationality: 2 } },
         { text: 'Ich lasse ihn auf mich zukommen – ich mag es, spontan zu sein.', points: { rationality: 3, love: 3 } },
         { text: 'Ich verbringe ihn mit Menschen, die mir wichtig sind.', points: { love: 4, moral: 2 } },
-        { text: 'Ich tue etwas, das mich wirklich erfüllt – ob es wichtig ist oder nicht.', points: { justice: 4, individualism: 2 } }
+        { text: 'Ich tue etwas, das mich wirklich erfüllt – ob es wichtig ist oder nicht.', points: { justice: 3, individualism: 3 } }
       ]
     },
     {
@@ -36,7 +36,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Ich funktioniere trotzdem weiter – irgendwann ist es vorbei.', points: { individualism: 4, progress: 2 } },
         { text: 'Ich ziehe mich zurück und lasse alles liegen.', points: { rationality: 4, love: 2 } },
         { text: 'Ich suche Nähe – bei Menschen, die mir guttun.', points: { love: 4, moral: 2 } },
-        { text: 'Ich frage mich, warum ich mich so fühle – und versuche, etwas zu ändern.', points: { justice: 4, rationality: 2 } }
+        { text: 'Ich frage mich, warum ich mich so fühle – und versuche, etwas zu ändern.', points: { justice: 3, rationality: 3 } }
       ]
     },
     {
@@ -54,7 +54,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Struktur – dass ich weiss, was als Nächstes kommt.', points: { progress: 4, democracy: 2 } },
         { text: 'Ruhe – dass ich einfach mal sein kann.', points: { rationality: 4, love: 2 } },
         { text: 'Echte Nähe – Menschen, die mich wirklich sehen.', points: { love: 4, moral: 2 } },
-        { text: 'Bedeutung – das Gefühl, dass das, was ich tue, zählt.', points: { justice: 4, individualism: 2 } }
+        { text: 'Bedeutung – das Gefühl, dass das, was ich tue, zählt.', points: { justice: 3, individualism: 3 } }
       ]
     },
     {
@@ -63,7 +63,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Wenn andere meine Zeit verschwenden.', points: { individualism: 4, progress: 2 } },
         { text: 'Wenn ich mich selbst nicht ernst nehme.', points: { rationality: 4, love: 2 } },
         { text: 'Wenn andere ungerecht behandelt werden.', points: { moral: 4, justice: 2 } },
-        { text: 'Wenn ich sehe, dass die Welt sich nicht verändert.', points: { progress: 4, democracy: 2 } }
+        { text: 'Wenn ich sehe, dass die Welt sich nicht verändert.', points: { progress: 4, democracy: 4 } }
       ]
     },
     {
@@ -72,7 +72,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Ich lenke mich ab – Arbeit, Serien, Social Media.', points: { technology: 4, individualism: 2 } },
         { text: 'Ich bin einfach damit – es ist, wie es ist.', points: { rationality: 4, love: 2 } },
         { text: 'Ich suche Kontakt – zu Menschen, die mir nahestehen.', points: { love: 4, moral: 2 } },
-        { text: 'Ich frage mich, warum ich mich so fühle – und versuche, es zu verstehen.', points: { justice: 4, rationality: 2 } }
+        { text: 'Ich frage mich, warum ich mich so fühle – und versuche, es zu verstehen.', points: { justice: 3, rationality: 3 } }
       ]
     },
     {
@@ -90,7 +90,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Sie geben mir Sicherheit – ich weiss, woran ich bin.', points: { progress: 4, democracy: 2 } },
         { text: 'Sie schränken mich ein – ich möchte selbst entscheiden.', points: { individualism: 4, rationality: 2 } },
         { text: 'Sie sind notwendig – aber sie sollten fair sein.', points: { democracy: 4, moral: 2 } },
-        { text: 'Sie sind ein Werkzeug – aber sie sollten nicht alles bestimmen.', points: { justice: 4, rationality: 2 } }
+        { text: 'Sie sind ein Werkzeug – aber sie sollten nicht alles bestimmen.', points: { justice: 4, rationality: 4 } }
       ]
     },
     {
@@ -99,7 +99,7 @@ document.addEventListener('keydown', function(e) {
         { text: 'Wenn ich alles geschafft habe, was ich mir vorgenommen habe.', points: { individualism: 4, progress: 2 } },
         { text: 'Wenn ich mich wohlgefühlt habe – ohne Druck.', points: { love: 4, rationality: 2 } },
         { text: 'Wenn ich mit anderen Menschen verbunden war.', points: { moral: 4, love: 2 } },
-        { text: 'Wenn ich das Gefühl hatte, etwas Sinnvolles getan zu haben.', points: { justice: 4, moral: 2 } }
+        { text: 'Wenn ich das Gefühl hatte, etwas Sinnvolles getan zu haben.', points: { justice: 3, moral: 3 } }
       ]
     },
     {
@@ -108,20 +108,44 @@ document.addEventListener('keydown', function(e) {
         { text: 'Ich suche nach Fakten – und entscheide rational.', points: { rationality: 4, progress: 2 } },
         { text: 'Ich höre auf mein Bauchgefühl – und entscheide intuitiv.', points: { love: 4, individualism: 2 } },
         { text: 'Ich hole mir Rat – und entscheide im Austausch.', points: { democracy: 4, moral: 2 } },
-        { text: 'Ich überlege, was langfristig das Beste wäre – und entscheide entsprechend.', points: { justice: 4, rationality: 2 } }
+        { text: 'Ich überlege, was langfristig das Beste wäre – und entscheide entsprechend.', points: { justice: 3, rationality: 3 } }
       ]
     }
   ];
 
   const results = {
-    progress: { title: 'Der Fortschrittsglaube', text: 'Du glaubst, dass die Geschichte auf eine bessere Zukunft zusteuert. Vielleicht denkst du an technologische Durchbrüche, an eine gerechtere Gesellschaft oder an eine moralisch bessere Welt. Aber der Fortschritt ist kein Faktum – er ist ein Glaubenssatz. Er vertröstet auf eine Zukunft, die nie kommt – und verhindert, dass du den Riss in der Gegenwart siehst. Wer an den Fortschritt glaubt, glaubt an eine Geschichte, die nicht bewiesen ist.' },
-    individualism: { title: 'Der Individualismus', text: 'Du glaubst, dass jeder seines Glückes Schmied ist. Dass du dein Leben selbst in der Hand hast – und dass du nur genug arbeiten, optimieren, disziplinieren musst. Aber der Mensch ist kein autonomes Wesen. Er ist ein soziales Wesen, das in Abhängigkeiten lebt, die es nicht gewählt hat. Der Individualismus entlastet die Gesellschaft – und gibt dir die Schuld für dein Leid.' },
-    rationality: { title: 'Der Rationalitätsglaube', text: 'Du glaubst, dass der Mensch aus Vernunft handelt. Aber das ist ein Glaubenssatz – kein Faktum. Der Mensch handelt aus Trieb, Angst und Gewohnheit – und rationalisiert nur nachträglich, was er getan hat. Die Annahme, dass der Mensch rational sei, ist selbst ein Konstrukt, das die Ablenkungsmaschine stützt.' },
-    technology: { title: 'Der Technologieglaube', text: 'Du glaubst, dass Technologie die Probleme der Menschheit lösen wird. Aber die Technologie ist ein Werkzeug – und sie wurde zum Meister. Der Glaube, dass Technologie die Lösung ist, ist selbst ein Produkt der Abstraktion, die den Menschen aus der Einheit mit der Welt riss. Wer an die Technologie glaubt, glaubt an eine Lösung, die das Problem nur in eine andere Form giest.' },
-    moral: { title: 'Der Moralismus', text: 'Du glaubst, dass die Menschheit moralisch besser wird. Dass Grausamkeit, Ungerechtigkeit und Ausbeutung im Laufe der Geschichte abnehmen. Aber der Mensch hat nicht weniger Grausamkeit produziert – er hat sie nur unsichtbarer gemacht. Der moralische Fortschritt ist eine Illusion, die den Riss überdeckt.' },
-    democracy: { title: 'Der Demokratieglaube', text: 'Du glaubst, dass Demokratie die beste aller Staatsformen ist. Aber die Demokratie ist ein Verfahren – keine Lösung. Sie gibt dir das Gefühl, mitzubestimmen – während die eigentlichen Entscheidungen längst gefallen sind. Wer an die Demokratie glaubt, glaubt an eine Illusion der Partizipation, die den Riss nur überdeckt.' },
-    love: { title: 'Der Erlösungsglaube', text: 'Du glaubst, dass die Liebe dich retten wird. Dass der andere Mensch die Leere füllen kann, die du in dir trägst. Aber die Liebe ist die schönste aller Ablenkungen. Sie überbrückt den Riss für einen Moment – aber sie schliesst ihn nicht. Wer an die Liebe als Erlösung glaubt, glaubt an eine Illusion, die das Discidium nur bestätigt.' },
-    justice: { title: 'Der Erfüllungsglaube', text: 'Du glaubst, dass die Lösung in der Veränderung der äusseren Umstände liegt. Dass du nur die richtigen Rahmenbedingungen schaffen musst – dann wird alles gut. Aber die äusseren Umstände sind nur eine Manifestation des Risses, nicht seine Ursache. Wer nur die Umstände verändert, behandelt ein Symptom – nicht die Krankheit.' }
+    progress: {
+      title: 'Der Fortschrittsglaube',
+      text: 'Du glaubst, dass die Geschichte auf eine bessere Zukunft zusteuert. Vielleicht denkst du an technologische Durchbrüche, an eine gerechtere Gesellschaft oder an eine moralisch bessere Welt. Aber der Fortschritt ist kein Faktum – er ist ein Glaubenssatz. Er vertröstet auf eine Zukunft, die nie kommt – und verhindert, dass du den Riss in der Gegenwart siehst. Wer an den Fortschritt glaubt, glaubt an eine Geschichte, die nicht bewiesen ist. Die einzige Zukunft, die wirklich zählt, ist die, die du jetzt lebst – und die du jetzt verändern kannst. Das Buch zeigt, warum der Glaube an den Fortschritt dich daran hindert, den Riss zu sehen – und wie du ihn trotzdem erkennen kannst.'
+    },
+    individualism: {
+      title: 'Der Individualismus',
+      text: 'Du glaubst, dass jeder seines Glückes Schmied ist. Dass du dein Leben selbst in der Hand hast – und dass du nur genug arbeiten, optimieren, disziplinieren musst. Aber der Mensch ist kein autonomes Wesen. Er ist ein soziales Wesen, das in Abhängigkeiten lebt, die es nicht gewählt hat. Der Individualismus entlastet die Gesellschaft – und gibt dir die Schuld für dein Leid. Wer an den Individualismus glaubt, übersieht, dass der Käfig nicht allein durch Eigenverantwortung zu verlassen ist. Das Buch zeigt, warum der Individualismus eine Falle ist – und wie du dennoch Freiheit finden kannst.'
+    },
+    rationality: {
+      title: 'Der Rationalitätsglaube',
+      text: 'Du glaubst, dass der Mensch aus Vernunft handelt. Aber das ist ein Glaubenssatz – kein Faktum. Der Mensch handelt aus Trieb, Angst und Gewohnheit – und rationalisiert nur nachträglich, was er getan hat. Die Annahme, dass der Mensch rational sei, ist selbst ein Konstrukt, das die Ablenkungsmaschine stützt. Wer an die Rationalität glaubt, übersieht, dass das Denken oft nur ein Werkzeug ist – nicht der Herrscher über das Leben. Das Buch zeigt, wie du den Unterschied zwischen rationalem Denken und echter Erkenntnis erkennen kannst.'
+    },
+    technology: {
+      title: 'Der Technologieglaube',
+      text: 'Du glaubst, dass Technologie die Probleme der Menschheit lösen wird. Aber die Technologie ist ein Werkzeug – und sie wurde zum Meister. Der Glaube, dass Technologie die Lösung ist, ist selbst ein Produkt der Abstraktion, die den Menschen aus der Einheit mit der Welt riss. Wer an die Technologie glaubt, glaubt an eine Lösung, die das Problem nur in eine andere Form giest. Die Technologie kann den Riss nicht schliessen – sie kann ihn nur unsichtbar machen. Das Buch zeigt, warum Technologie allein nicht rettet – und was stattdessen zählt.'
+    },
+    moral: {
+      title: 'Der Moralismus',
+      text: 'Du glaubst, dass die Menschheit moralisch besser wird. Dass Grausamkeit, Ungerechtigkeit und Ausbeutung im Laufe der Geschichte abnehmen. Aber der Mensch hat nicht weniger Grausamkeit produziert – er hat sie nur unsichtbarer gemacht. Der moralische Fortschritt ist eine Illusion, die den Riss überdeckt. Wer an den Moralismus glaubt, übersieht, dass die Moral oft nur ein Werkzeug der Kontrolle ist – nicht der Befreiung. Das Buch zeigt, wie du die moralische Fassade durchschauen und den Riss dahinter erkennen kannst.'
+    },
+    democracy: {
+      title: 'Der Demokratieglaube',
+      text: 'Du glaubst, dass Demokratie die beste aller Staatsformen ist. Aber die Demokratie ist ein Verfahren – keine Lösung. Sie gibt dir das Gefühl, mitzubestimmen – während die eigentlichen Entscheidungen längst gefallen sind. Wer an die Demokratie glaubt, glaubt an eine Illusion der Partizipation, die den Riss nur überdeckt. Die Demokratie ist nicht der Ausweg aus dem Käfig – sie ist eine der raffiniertesten Formen, ihn erträglich zu machen. Das Buch zeigt, wie du den Käfig der Demokratie erkennen und dennoch handlungsfähig bleiben kannst.'
+    },
+    love: {
+      title: 'Der Erlösungsglaube',
+      text: 'Du glaubst, dass es einen Ausweg aus dem Leiden gibt – dass die Trennung überwunden werden kann. Vielleicht suchst du ihn in der Liebe, vielleicht im Glauben, vielleicht in einer besseren Gesellschaft. Aber jeder Versuch, den Riss zu schliessen, ohne ihn zu sehen, ist eine Ablenkung. Die Erlösung, die du suchst, ist nicht das Ende des Leidens – sie ist der Versuch, das Leiden zu überspringen. Wer an die Erlösung glaubt, glaubt an eine Illusion, die das Discidium nur bestätigt. Der Riss wird nicht geschlossen – er wird nur überdeckt. Erlösung ist nicht der Ausgang aus dem Käfig. Sie ist der schönste Traum, den der Gefangene träumen kann. Und wie alle Träume endet er mit dem Erwachen. Das Buch zeigt, wie du den Traum durchschauen und den Riss sehen kannst – und warum das der erste Schritt zur wirklichen Freiheit ist.'
+    },
+    justice: {
+      title: 'Der Erfüllungsglaube',
+      text: 'Du glaubst, dass die Lösung in der Veränderung der äusseren Umstände liegt. Dass du nur die richtigen Rahmenbedingungen schaffen musst – dann wird alles gut. Aber die äusseren Umstände sind nur eine Manifestation des Risses, nicht seine Ursache. Wer nur die Umstände verändert, behandelt ein Symptom – nicht die Krankheit. Der Erfüllungsglaube ist der Glaube daran, dass die Welt repariert werden kann, ohne dass der Mensch sich selbst reparieren muss. Aber der Käfig ist nicht ausserhalb von dir – er ist in dir. Das Buch zeigt, wie du den Unterschied zwischen Symptomen und Ursachen erkennen kannst – und warum die wirkliche Veränderung bei dir selbst beginnt.'
+    }
   };
 
   let currentQuestion = 0;
@@ -176,7 +200,7 @@ document.addEventListener('keydown', function(e) {
     const sortedScores = Object.entries(scores).sort((a, b) => b[1] - a[1]);
     sortedScores.forEach(([key, value]) => {
       const labelMap = { progress: 'Fortschrittsglaube', individualism: 'Individualismus', rationality: 'Rationalitätsglaube', technology: 'Technologieglaube', moral: 'Moralismus', democracy: 'Demokratieglaube', love: 'Erlösungsglaube', justice: 'Erfüllungsglaube' };
-      const maxPossible = 20;
+      const maxPossible = 36;   // NEU: Maximale Punktzahl pro Glaubenssatz
       const widthPercent = Math.min((value / maxPossible) * 100, 100);
       html += `
         <div class="score-item">
@@ -472,7 +496,7 @@ document.addEventListener('keydown', function(e) {
     btn.addEventListener('click', () => {
       sternName.textContent = star.name;
       sternText.textContent = star.text;
-      sternQuote.innerHTML = star.quote;   // <-- innerHTML, damit <br> funktioniert
+      sternQuote.innerHTML = star.quote;
       sternSource.textContent = star.source;
       sternPortrait.src = star.portrait;
       sternPortrait.alt = `Porträt von ${star.name}`;
