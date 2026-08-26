@@ -430,11 +430,10 @@ blockquote {
 
 .voice-item i { color: var(--mint); font-size: 1.8rem; opacity: 0.8; }
 
-.download-shop {
+.download-shop-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  margin: 2rem 0 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .panel {
